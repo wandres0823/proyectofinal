@@ -5,21 +5,26 @@
  */
 package clases;
 
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+
 /**
  *
  * @author walbonis1
  */
-public class Personas {
+public class Personas implements java.io.Serializable{
    
     private String nombre;
     private String apellido ;
     private String cedula;
+    private String origen;
     private String destino;
 
-    public Personas(String nombre, String apellido, String cedula,String destino) {
+    public Personas(String nombre, String apellido, String cedula,String origen ,String destino) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.cedula = cedula;
+        this.origen = origen;
         this.destino = destino;
         
     }
@@ -56,6 +61,18 @@ public class Personas {
     public void setDestino(String destino) {
         this.destino = destino;
     }
-    
+
+    public String getOrigen() {
+        return origen;
+    }
+
+    public void setOrigen(String origen) {
+        this.origen = origen;
+    }
+ 
+    public void guardar(ObjectOutputStream salida) throws IOException{
+      salida.writeObject(this);
+        
+    }
 }
 

@@ -46,6 +46,11 @@ public class Principal extends javax.swing.JFrame {
         mnOpciones.setText("Opciones");
 
         mnagregar.setText("Agregar");
+        mnagregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnagregarActionPerformed(evt);
+            }
+        });
         mnOpciones.add(mnagregar);
 
         mnReportes.setText("Reportes");
@@ -80,8 +85,13 @@ public class Principal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void mnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnSalirActionPerformed
-        // TODO add your handling code here:
+        System.exit(0);
     }//GEN-LAST:event_mnSalirActionPerformed
+
+    private void mnagregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnagregarActionPerformed
+    Agregar a = new Agregar(this,true);
+        a.setVisible(true);
+    }//GEN-LAST:event_mnagregarActionPerformed
 
     /**
      * @param args the command line arguments
