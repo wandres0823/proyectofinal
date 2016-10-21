@@ -14,52 +14,42 @@ import java.io.ObjectOutputStream;
  */
 public class Personas implements java.io.Serializable{
    
-    private String nombre;
-    private String apellido ;
     private String cedula;
+    private String nombre;
+    private String apellido;
     private String origen;
     private String destino;
 
-    public Personas(String nombre, String apellido, String cedula,String origen ,String destino) {
+    public Personas(String cedula, String nombre, String apellido, String origen, String destino) {
+        this.cedula = cedula;
         this.nombre = nombre;
         this.apellido = apellido;
-        this.cedula = cedula;
         this.origen = origen;
         this.destino = destino;
-        
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public String getApellido() {
-        return apellido;
     }
 
     public String getCedula() {
         return cedula;
     }
 
-    public String getDestino() {
-        return destino;
+    public void setCedula(String cedula) {
+        this.cedula = cedula;
     }
-    
+
+    public String getNombre() {
+        return nombre;
+    }
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
 
+    public String getApellido() {
+        return apellido;
+    }
+
     public void setApellido(String apellido) {
         this.apellido = apellido;
-    }
-
-    public void setCedula(String cedula) {
-        this.cedula = cedula;
-    }
-
-    public void setDestino(String destino) {
-        this.destino = destino;
     }
 
     public String getOrigen() {
@@ -69,7 +59,16 @@ public class Personas implements java.io.Serializable{
     public void setOrigen(String origen) {
         this.origen = origen;
     }
- 
+
+    public String getDestino() {
+        return destino;
+    }
+
+    public void setDestino(String destino) {
+        this.destino = destino;
+    }
+
+  
     public void guardar(ObjectOutputStream salida) throws IOException{
       salida.writeObject(this);
         

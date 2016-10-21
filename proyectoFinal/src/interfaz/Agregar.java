@@ -74,32 +74,39 @@ public class Agregar extends javax.swing.JDialog {
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Datos Persona"));
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Datos Persona", 0, 0, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(153, 255, 255))); // NOI18N
+        jPanel2.setOpaque(false);
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Cédula:");
         jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 50, 20));
         jPanel2.add(txtCedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 20, 120, -1));
 
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Nombre:");
         jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, -1, 20));
         jPanel2.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 50, 120, -1));
 
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Apellido:");
         jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, -1, 20));
         jPanel2.add(txtApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 80, 120, -1));
         jPanel2.add(txtOrigen, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 110, 120, -1));
 
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Origen:");
         jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, -1, 20));
         jPanel2.add(txtDestino, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 140, 120, -1));
 
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Destino:");
         jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, -1, 20));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, 230, 180));
 
-        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder("Opciones"));
+        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Opciones", 0, 0, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(153, 255, 255))); // NOI18N
+        jPanel4.setOpaque(false);
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         cmdGuardar.setText("Guardar");
@@ -144,6 +151,7 @@ public class Agregar extends javax.swing.JDialog {
                 return canEdit [columnIndex];
             }
         });
+        tblTablaPersonas.setOpaque(false);
         tblTablaPersonas.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tblTablaPersonasMouseClicked(evt);
@@ -168,6 +176,7 @@ public class Agregar extends javax.swing.JDialog {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void cmdGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdGuardarActionPerformed
