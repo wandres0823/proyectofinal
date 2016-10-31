@@ -327,7 +327,42 @@ public class Helper {
             
         }
     }
+public static boolean buscarPersonaCedula(String cedula, String ruta) {
+        ArrayList<Personas> personas = traerDatos(ruta);
+        for (int i = 0; i < personas.size(); i++) {
+            if (personas.get(i).getCedula().equals(cedula)) {
+                return true;
+            }
+        }
+        return false;
+   }
     
+    public static Personas traerPersonaCedula(String cedula, String ruta){
+         ArrayList<Personas> personas = traerDatos(ruta);
+         for (int i = 0; i < personas.size(); i++) {
+            if (personas.get(i).getCedula().equals(cedula)) {
+                return personas.get(i);
+            }
+            
+        }
+         return null;
+    }
+    
+    public static ArrayList<Personas> modificarPersona(String ruta, String cedula,String nombre, String apellido,String origen, String destino){
+         ArrayList<Personas> personas = traerDatos(ruta);
+         for (int i = 0; i < personas.size(); i++) {
+            if(personas.get(i).getCedula().equals(cedula)){
+                personas.get(i).setNombre(nombre);
+                personas.get(i).setApellido(apellido);
+                personas.get(i).setOrigen(origen);
+                personas.get(i).setDestino(destino);
+              
+                
+                return personas;
+            }
+         
+        }
+         return null;
+    } 
 
-  
 }

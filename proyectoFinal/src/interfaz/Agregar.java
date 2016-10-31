@@ -12,6 +12,9 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JButton;
 import javax.swing.JOptionPane;
 
 /**
@@ -26,6 +29,7 @@ public class Agregar extends javax.swing.JDialog {
     String ruta;
     ObjectOutputStream salida;
     ArrayList<Personas> personas;
+    int aux = 0;
 
     public Agregar(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
@@ -65,7 +69,8 @@ public class Agregar extends javax.swing.JDialog {
         jPanel4 = new javax.swing.JPanel();
         cmdGuardar = new javax.swing.JButton();
         cmdEliminar = new javax.swing.JButton();
-        cmdLimpiar = new javax.swing.JButton();
+        cmdCancelar = new javax.swing.JButton();
+        cmdBuscar = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblTablaPersonas = new javax.swing.JTable();
         lblImagen = new javax.swing.JLabel();
@@ -74,29 +79,44 @@ public class Agregar extends javax.swing.JDialog {
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Datos Persona", 0, 0, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(153, 255, 255))); // NOI18N
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Datos Persona", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, null, new java.awt.Color(153, 255, 255)));
         jPanel2.setOpaque(false);
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Cédula:");
         jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 50, 20));
+
+        txtCedula.setForeground(new java.awt.Color(255, 0, 0));
+        txtCedula.setOpaque(false);
         jPanel2.add(txtCedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 20, 120, -1));
 
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Nombre:");
         jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, -1, 20));
+
+        txtNombre.setForeground(new java.awt.Color(255, 0, 0));
+        txtNombre.setOpaque(false);
         jPanel2.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 50, 120, -1));
 
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Apellido:");
         jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, -1, 20));
+
+        txtApellido.setForeground(new java.awt.Color(255, 0, 0));
+        txtApellido.setOpaque(false);
         jPanel2.add(txtApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 80, 120, -1));
+
+        txtOrigen.setForeground(new java.awt.Color(255, 0, 0));
+        txtOrigen.setOpaque(false);
         jPanel2.add(txtOrigen, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 110, 120, -1));
 
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Origen:");
         jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, -1, 20));
+
+        txtDestino.setForeground(new java.awt.Color(255, 0, 0));
+        txtDestino.setOpaque(false);
         jPanel2.add(txtDestino, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 140, 120, -1));
 
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
@@ -105,35 +125,51 @@ public class Agregar extends javax.swing.JDialog {
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, 230, 180));
 
-        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Opciones", 0, 0, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(153, 255, 255))); // NOI18N
+        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Opciones", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, null, new java.awt.Color(153, 255, 255)));
         jPanel4.setOpaque(false);
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         cmdGuardar.setText("Guardar");
+        cmdGuardar.setBorderPainted(false);
+        cmdGuardar.setOpaque(false);
         cmdGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmdGuardarActionPerformed(evt);
             }
         });
-        jPanel4.add(cmdGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 100, -1));
+        jPanel4.add(cmdGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 100, -1));
 
         cmdEliminar.setText("Eliminar");
+        cmdEliminar.setBorderPainted(false);
+        cmdEliminar.setOpaque(false);
         cmdEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmdEliminarActionPerformed(evt);
             }
         });
-        jPanel4.add(cmdEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 100, -1));
+        jPanel4.add(cmdEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 100, -1));
 
-        cmdLimpiar.setText("Limpiar");
-        cmdLimpiar.addActionListener(new java.awt.event.ActionListener() {
+        cmdCancelar.setText("Cancelar");
+        cmdCancelar.setBorderPainted(false);
+        cmdCancelar.setOpaque(false);
+        cmdCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmdLimpiarActionPerformed(evt);
+                cmdCancelarActionPerformed(evt);
             }
         });
-        jPanel4.add(cmdLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 100, -1));
+        jPanel4.add(cmdCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, 100, -1));
 
-        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 60, 120, 120));
+        cmdBuscar.setText("Buscar");
+        cmdBuscar.setBorderPainted(false);
+        cmdBuscar.setOpaque(false);
+        cmdBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdBuscarActionPerformed(evt);
+            }
+        });
+        jPanel4.add(cmdBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 100, -1));
+
+        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 40, 120, 160));
 
         tblTablaPersonas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -186,12 +222,21 @@ public class Agregar extends javax.swing.JDialog {
         apellido = txtApellido.getText();
         origen = txtOrigen.getText();
         destino = txtDestino.getText();
-
+          ArrayList<Personas> personasModificado;
+           try {
+            if (aux == 0) {
         Personas p = new Personas(cedula, nombre, apellido, origen, destino);
-        try {
+        
             p.guardar(salida);
+         } else {
+           personasModificado = Helper.modificarPersona(ruta, cedula, nombre, apellido, origen, destino);
+                salida = new ObjectOutputStream(new FileOutputStream(ruta));
+                Helper.volcado(salida, personasModificado);
+                aux=0;
+                Helper.mensaje(this, "Persona Actualizada Correctamente!", 1);
+            }
         } catch (IOException ex) {
-            System.out.println(ex.getMessage());
+            Logger.getLogger(Agregar.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         Helper.llenarTabla(tblTablaPersonas, ruta);
@@ -202,6 +247,11 @@ public class Agregar extends javax.swing.JDialog {
         txtOrigen.setText("");
         txtDestino.setText("");
         txtCedula.requestFocusInWindow();
+        JButton botonesH[]={cmdBuscar,cmdCancelar};
+        JButton botonesD[]={cmdEliminar,cmdGuardar};
+        
+        Helper.habilitarBotones(botonesH);
+        Helper.deshabilitarBotones(botonesD);
 
     }//GEN-LAST:event_cmdGuardarActionPerformed
 
@@ -229,15 +279,25 @@ public class Agregar extends javax.swing.JDialog {
             txtDestino.setText("");
             txtCedula.requestFocusInWindow();
         }
+        JButton botonesH[]={cmdBuscar,cmdCancelar};
+        JButton botonesD[]={cmdEliminar,cmdGuardar};
+        
+        Helper.habilitarBotones(botonesH);
+        Helper.deshabilitarBotones(botonesD);
     }//GEN-LAST:event_cmdEliminarActionPerformed
 
-    private void cmdLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdLimpiarActionPerformed
+    private void cmdCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdCancelarActionPerformed
         txtCedula.setText("");
         txtNombre.setText("");
         txtApellido.setText("");
 
         txtCedula.requestFocusInWindow();
-    }//GEN-LAST:event_cmdLimpiarActionPerformed
+        JButton botonesH[]={cmdBuscar,cmdCancelar};
+        JButton botonesD[]={cmdEliminar,cmdGuardar};
+        
+        Helper.habilitarBotones(botonesH);
+        Helper.deshabilitarBotones(botonesD);
+    }//GEN-LAST:event_cmdCancelarActionPerformed
 
     private void tblTablaPersonasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblTablaPersonasMouseClicked
         int i;
@@ -254,6 +314,29 @@ public class Agregar extends javax.swing.JDialog {
         txtDestino.setText(p.getDestino());
 
     }//GEN-LAST:event_tblTablaPersonasMouseClicked
+
+    private void cmdBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdBuscarActionPerformed
+        String cedula;
+        cedula = txtCedula.getText();
+        Personas p;
+        if (Helper.buscarPersonaCedula(cedula, ruta)) {
+            p = Helper.traerPersonaCedula(cedula, ruta);
+            txtNombre.setText(p.getNombre());
+            txtApellido.setText(p.getApellido());
+            txtOrigen.setText(p.getOrigen());
+            txtDestino.setText(p.getDestino());
+          
+            aux = 1;
+        } else {
+            txtNombre.requestFocusInWindow();
+            aux = 0;
+        }
+        JButton botonesH[]={cmdGuardar,cmdCancelar, cmdEliminar};
+        JButton botonesD[]={cmdBuscar};
+        
+        Helper.habilitarBotones(botonesH);
+        Helper.deshabilitarBotones(botonesD);
+    }//GEN-LAST:event_cmdBuscarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -281,6 +364,7 @@ public class Agregar extends javax.swing.JDialog {
             java.util.logging.Logger.getLogger(Agregar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -298,9 +382,10 @@ public class Agregar extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton cmdBuscar;
+    private javax.swing.JButton cmdCancelar;
     private javax.swing.JButton cmdEliminar;
     private javax.swing.JButton cmdGuardar;
-    private javax.swing.JButton cmdLimpiar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
