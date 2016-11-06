@@ -32,11 +32,15 @@ public class Principal extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         mnOpciones = new javax.swing.JMenu();
         mnagregar = new javax.swing.JMenuItem();
-        mnReportes = new javax.swing.JMenuItem();
+        MnReportes = new javax.swing.JMenu();
+        MnListados = new javax.swing.JMenu();
+        MnListadoCompleto = new javax.swing.JMenuItem();
+        MnListadoPorOrigen = new javax.swing.JMenuItem();
         jSeparator1 = new javax.swing.JPopupMenu.Separator();
         mnSalir = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Aerolinea All Star");
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -53,8 +57,29 @@ public class Principal extends javax.swing.JFrame {
         });
         mnOpciones.add(mnagregar);
 
-        mnReportes.setText("Reportes");
-        mnOpciones.add(mnReportes);
+        MnReportes.setText("Reportes");
+
+        MnListados.setText("Listados");
+
+        MnListadoCompleto.setText("Listado Completo");
+        MnListadoCompleto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MnListadoCompletoActionPerformed(evt);
+            }
+        });
+        MnListados.add(MnListadoCompleto);
+
+        MnListadoPorOrigen.setText("Listado Por Origen");
+        MnListadoPorOrigen.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MnListadoPorOrigenActionPerformed(evt);
+            }
+        });
+        MnListados.add(MnListadoPorOrigen);
+
+        MnReportes.add(MnListados);
+
+        mnOpciones.add(MnReportes);
         mnOpciones.add(jSeparator1);
 
         mnSalir.setText("Salir");
@@ -93,6 +118,16 @@ public class Principal extends javax.swing.JFrame {
         a.setVisible(true);
     }//GEN-LAST:event_mnagregarActionPerformed
 
+    private void MnListadoCompletoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnListadoCompletoActionPerformed
+     ListadoCompleto lc = new ListadoCompleto(this,true);
+        lc.setVisible(true);
+    }//GEN-LAST:event_MnListadoCompletoActionPerformed
+
+    private void MnListadoPorOrigenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnListadoPorOrigenActionPerformed
+    ListadoPorOrigen lpo = new ListadoPorOrigen(this,true);
+    lpo.setVisible(true);
+    }//GEN-LAST:event_MnListadoPorOrigenActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -119,6 +154,7 @@ public class Principal extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -129,13 +165,16 @@ public class Principal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem MnListadoCompleto;
+    private javax.swing.JMenuItem MnListadoPorOrigen;
+    private javax.swing.JMenu MnListados;
+    private javax.swing.JMenu MnReportes;
     private javax.swing.JLabel imagen;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JMenu mnOpciones;
-    private javax.swing.JMenuItem mnReportes;
     private javax.swing.JMenuItem mnSalir;
     private javax.swing.JMenuItem mnagregar;
     // End of variables declaration//GEN-END:variables
-}
+    }

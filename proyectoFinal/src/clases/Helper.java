@@ -295,6 +295,23 @@ public class Helper {
         }
     }
     
+    public static void llenarTabla(JTable tabla, ArrayList<Personas> personas) {
+        DefaultTableModel tm;
+        int nf;
+        tm = (DefaultTableModel) tabla.getModel();
+        limpiadoTabla(tabla);
+        nf = personas.size();
+        tm.setRowCount(nf);
+        for (int i = 0; i < nf; i++) {
+            tabla.setValueAt(i + 1, i, 0);
+            tabla.setValueAt(personas.get(i).getCedula(), i, 1);
+           tabla.setValueAt(personas.get(i).getNombre(), i, 2);
+           tabla.setValueAt(personas.get(i).getApellido(), i, 3);
+           tabla.setValueAt(personas.get(i).getOrigen(), i, 4);
+           tabla.setValueAt(personas.get(i).getDestino(), i, 5);
+        }
+    }
+    
     public static ArrayList traerDatos(String ruta){
         FileInputStream archivo;
         ObjectInputStream entrada;
@@ -365,4 +382,16 @@ public static boolean buscarPersonaCedula(String cedula, String ruta) {
          return null;
     } 
 
+    public static void listadoPorOrigen(JTable tabla, String ruta, String origen) {
+        ArrayList<Personas> personas = traerDatos(ruta);
+        ArrayList<Personas> personasFiltradas = new ArrayList();
+        for (int i = 0; i < personas.size(); i++) {
+            if (personas.get(i).getOrigen().equalsIgnoreCase(origen)) {
+                personasFiltradas.add(personas.get(i));
+            }
+
+        }
+        llenarTabla(tabla, personasFiltradas);
+
+    }
 }
