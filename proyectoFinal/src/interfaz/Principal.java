@@ -5,6 +5,8 @@
  */
 package interfaz;
 
+import clases.Helper;
+
 /**
  *
  * @author walbonis1
@@ -14,8 +16,10 @@ public class Principal extends javax.swing.JFrame {
     /**
      * Creates new form Principal
      */
+    String ruta;
     public Principal() {
         initComponents();
+        ruta = "src/datos/personas.txt";
     }
 
     /**
@@ -31,13 +35,18 @@ public class Principal extends javax.swing.JFrame {
         imagen = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         mnOpciones = new javax.swing.JMenu();
+        jSeparator1 = new javax.swing.JPopupMenu.Separator();
+        mnSalir = new javax.swing.JMenuItem();
+        MnPasajeros = new javax.swing.JMenu();
         mnagregar = new javax.swing.JMenuItem();
         MnReportes = new javax.swing.JMenu();
         MnListados = new javax.swing.JMenu();
         MnListadoCompleto = new javax.swing.JMenuItem();
         MnListadoPorOrigen = new javax.swing.JMenuItem();
-        jSeparator1 = new javax.swing.JPopupMenu.Separator();
-        mnSalir = new javax.swing.JMenuItem();
+        MnCantidades = new javax.swing.JMenu();
+        MnNoPasajeros = new javax.swing.JMenuItem();
+        MnDestino = new javax.swing.JMenu();
+        MnAgregarDestino = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Aerolinea All Star");
@@ -48,6 +57,19 @@ public class Principal extends javax.swing.JFrame {
         jPanel1.add(imagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 0, 780, -1));
 
         mnOpciones.setText("Opciones");
+        mnOpciones.add(jSeparator1);
+
+        mnSalir.setText("Salir");
+        mnSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnSalirActionPerformed(evt);
+            }
+        });
+        mnOpciones.add(mnSalir);
+
+        jMenuBar1.add(mnOpciones);
+
+        MnPasajeros.setText("Pasajeros");
 
         mnagregar.setText("Agregar");
         mnagregar.addActionListener(new java.awt.event.ActionListener() {
@@ -55,7 +77,7 @@ public class Principal extends javax.swing.JFrame {
                 mnagregarActionPerformed(evt);
             }
         });
-        mnOpciones.add(mnagregar);
+        MnPasajeros.add(mnagregar);
 
         MnReportes.setText("Reportes");
 
@@ -79,18 +101,33 @@ public class Principal extends javax.swing.JFrame {
 
         MnReportes.add(MnListados);
 
-        mnOpciones.add(MnReportes);
-        mnOpciones.add(jSeparator1);
+        MnCantidades.setText("Cantidades");
 
-        mnSalir.setText("Salir");
-        mnSalir.addActionListener(new java.awt.event.ActionListener() {
+        MnNoPasajeros.setText("Numero de Pasajeros");
+        MnNoPasajeros.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mnSalirActionPerformed(evt);
+                MnNoPasajerosActionPerformed(evt);
             }
         });
-        mnOpciones.add(mnSalir);
+        MnCantidades.add(MnNoPasajeros);
 
-        jMenuBar1.add(mnOpciones);
+        MnReportes.add(MnCantidades);
+
+        MnPasajeros.add(MnReportes);
+
+        jMenuBar1.add(MnPasajeros);
+
+        MnDestino.setText("Destino");
+
+        MnAgregarDestino.setText("Agregar");
+        MnAgregarDestino.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MnAgregarDestinoActionPerformed(evt);
+            }
+        });
+        MnDestino.add(MnAgregarDestino);
+
+        jMenuBar1.add(MnDestino);
 
         setJMenuBar(jMenuBar1);
 
@@ -128,6 +165,17 @@ public class Principal extends javax.swing.JFrame {
     lpo.setVisible(true);
     }//GEN-LAST:event_MnListadoPorOrigenActionPerformed
 
+    private void MnNoPasajerosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnNoPasajerosActionPerformed
+    int cont;
+        cont = Helper.traerDatos(ruta).size();
+        Helper.mensaje(this, "El número de pasajeros ingresados es: "+cont, 1);
+    }//GEN-LAST:event_MnNoPasajerosActionPerformed
+
+    private void MnAgregarDestinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnAgregarDestinoActionPerformed
+    AgregarDestino ad = new AgregarDestino(this,true);
+        ad.setVisible(true); 
+    }//GEN-LAST:event_MnAgregarDestinoActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -155,6 +203,8 @@ public class Principal extends javax.swing.JFrame {
         }
         //</editor-fold>
         //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -165,9 +215,14 @@ public class Principal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem MnAgregarDestino;
+    private javax.swing.JMenu MnCantidades;
+    private javax.swing.JMenu MnDestino;
     private javax.swing.JMenuItem MnListadoCompleto;
     private javax.swing.JMenuItem MnListadoPorOrigen;
     private javax.swing.JMenu MnListados;
+    private javax.swing.JMenuItem MnNoPasajeros;
+    private javax.swing.JMenu MnPasajeros;
     private javax.swing.JMenu MnReportes;
     private javax.swing.JLabel imagen;
     private javax.swing.JMenuBar jMenuBar1;

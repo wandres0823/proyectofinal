@@ -12,7 +12,9 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -291,7 +293,42 @@ public class Helper {
            tabla.setValueAt(personas.get(i).getNombre(), i, 2);
            tabla.setValueAt(personas.get(i).getApellido(), i, 3);
            tabla.setValueAt(personas.get(i).getOrigen(), i, 4);
-           tabla.setValueAt(personas.get(i).getDestino(), i, 5);
+          
+        }
+    }
+    
+     public static void llenarTablaDestinos(JTable tabla, String ruta){
+        DefaultTableModel tm;
+        int nf;
+        ArrayList<Destino> destinos = traerDatos(ruta);
+        tm = (DefaultTableModel)tabla.getModel();
+        limpiadoTabla(tabla);
+        nf = destinos.size();
+        tm.setRowCount(nf);
+        for (int i = 0; i < nf; i++) {
+           tabla.setValueAt(i+1, i, 0);
+           tabla.setValueAt(destinos.get(i).getPasajero().getCedula(), i, 1);
+           tabla.setValueAt(destinos.get(i).getPasajero().getNombre(), i, 2);
+           tabla.setValueAt(destinos.get(i).getPasajero().getApellido(), i, 3);
+           tabla.setValueAt(destinos.get(i).getPasajero().getOrigen(), i, 4);
+          
+        }
+    }
+    public static void llenarTablaListado(JTable tabla, String ruta){
+        DefaultTableModel tm;
+        int nf;
+        ArrayList<Destino> destinos = traerDatos(ruta);
+        tm = (DefaultTableModel)tabla.getModel();
+        limpiadoTabla(tabla);
+        nf = destinos.size();
+        tm.setRowCount(nf);
+        for (int i = 0; i < nf; i++) {
+           tabla.setValueAt(i+1, i, 0);
+           tabla.setValueAt(destinos.get(i).getPasajero().getCedula(), i, 1);
+           tabla.setValueAt(destinos.get(i).getPasajero().getNombre(), i, 2);
+           tabla.setValueAt(destinos.get(i).getPasajero().getApellido(), i, 3);
+           tabla.setValueAt(destinos.get(i).getPasajero().getOrigen(), i, 4);
+           tabla.setValueAt(destinos.get(i).getDestino(), i, 5);
         }
     }
     
@@ -308,7 +345,41 @@ public class Helper {
            tabla.setValueAt(personas.get(i).getNombre(), i, 2);
            tabla.setValueAt(personas.get(i).getApellido(), i, 3);
            tabla.setValueAt(personas.get(i).getOrigen(), i, 4);
-           tabla.setValueAt(personas.get(i).getDestino(), i, 5);
+           
+        }
+    }
+    
+    public static void llenarTablaOrigen(JTable tabla, ArrayList<Destino> destinos) {
+        DefaultTableModel tm;
+        int nf;
+        tm = (DefaultTableModel) tabla.getModel();
+        limpiadoTabla(tabla);
+        nf = destinos.size();
+        tm.setRowCount(nf);
+        for (int i = 0; i < nf; i++) {
+            tabla.setValueAt(i+1, i, 0);
+            tabla.setValueAt(destinos.get(i).getPasajero().getCedula(), i, 1);
+           tabla.setValueAt(destinos.get(i).getPasajero().getNombre(), i, 2);
+           tabla.setValueAt(destinos.get(i).getPasajero().getApellido(), i, 3);
+           tabla.setValueAt(destinos.get(i).getPasajero().getOrigen(), i, 4);
+           tabla.setValueAt(destinos.get(i).getDestino(), i, 5);
+        }
+    }
+    
+    public static void llenarTablaDestino(JTable tabla, String ruta) {
+        DefaultTableModel tm;
+        int nf;
+        ArrayList<Destino> destinos = traerDatos(ruta);
+        tm = (DefaultTableModel) tabla.getModel();
+        limpiadoTabla(tabla);
+        nf = destinos.size();
+        tm.setRowCount(nf);
+        for (int i = 0; i < nf; i++) {
+            tabla.setValueAt(i + 1, i, 0);
+            tabla.setValueAt(destinos.get(i).getDestino(), i, 1);
+            tabla.setValueAt(destinos.get(i).getPasajero().getCedula(), i, 2);
+            tabla.setValueAt(destinos.get(i).getPasajero().getNombre(), i, 3);
+            tabla.setValueAt(destinos.get(i).getPasajero().getApellido(), i, 4);
         }
     }
     
@@ -365,14 +436,14 @@ public static boolean buscarPersonaCedula(String cedula, String ruta) {
          return null;
     }
     
-    public static ArrayList<Personas> modificarPersona(String ruta, String cedula,String nombre, String apellido,String origen, String destino){
+    public static ArrayList<Personas> modificarPersona(String ruta, String cedula,String nombre, String apellido,String origen){
          ArrayList<Personas> personas = traerDatos(ruta);
          for (int i = 0; i < personas.size(); i++) {
             if(personas.get(i).getCedula().equals(cedula)){
                 personas.get(i).setNombre(nombre);
                 personas.get(i).setApellido(apellido);
                 personas.get(i).setOrigen(origen);
-                personas.get(i).setDestino(destino);
+                
               
                 
                 return personas;
@@ -381,17 +452,68 @@ public static boolean buscarPersonaCedula(String cedula, String ruta) {
         }
          return null;
     } 
+    
+    public static ArrayList<Destino> modificarDestino(String ruta, String cedula,String destino,Personas propietario){
+         ArrayList<Destino> destinos = traerDatos(ruta);
+         for (int i = 0; i < destinos.size(); i++) {
+            if(destinos.get(i).getPasajero().getCedula().equals(cedula)){
+                destinos.get(i).setDestino(destino);
+                destinos.get(i).setPasajero(propietario);
+               
+                
+                return destinos;
+            }
+         
+        }
+         return null;
+    } 
 
     public static void listadoPorOrigen(JTable tabla, String ruta, String origen) {
-        ArrayList<Personas> personas = traerDatos(ruta);
-        ArrayList<Personas> personasFiltradas = new ArrayList();
-        for (int i = 0; i < personas.size(); i++) {
-            if (personas.get(i).getOrigen().equalsIgnoreCase(origen)) {
-                personasFiltradas.add(personas.get(i));
+        ArrayList<Destino> destinos = traerDatos(ruta);
+        ArrayList<Destino> DestinopersonasFiltradas = new ArrayList();
+        for (int i = 0; i < destinos.size(); i++) {
+            if (destinos.get(i).getPasajero().getOrigen().equalsIgnoreCase(origen)) {
+                DestinopersonasFiltradas.add(destinos.get(i));
             }
 
         }
-        llenarTabla(tabla, personasFiltradas);
+        llenarTablaOrigen(tabla, DestinopersonasFiltradas);
 
     }
+    
+    public static void llenarComboPersonas(JComboBox combo, String ruta){
+        ArrayList<Personas> personas = traerDatos(ruta);
+        DefaultComboBoxModel dcbm =(DefaultComboBoxModel) combo.getModel();
+        dcbm.removeAllElements();
+        Personas p;
+        for (int i = 0; i < personas.size(); i++) {
+            p = personas.get(i);
+           dcbm.addElement(p.getCedula()+" - "+p.getNombre()+" "+p.getApellido());
+        }
+    } 
+    
+    public static boolean buscarDestino(String cedula, String ruta) {
+        ArrayList<Destino> destinos = traerDatos(ruta);
+        for (int i = 0; i < destinos.size(); i++) {
+            if (destinos.get(i).getPasajero().getCedula().equals(cedula)) {
+                return true;
+            }
+        }
+        return false;
+   }
+    
+    public static Destino traerDestino(String cedula, String ruta){
+         ArrayList<Destino> destinos = traerDatos(ruta);
+         for (int i = 0; i < destinos.size(); i++) {
+            if (destinos.get(i).getPasajero().getCedula().equals(cedula)) {
+                return destinos.get(i);
+            }
+            
+        }
+         return null;
+    }
+    
+   
 }
+    
+   

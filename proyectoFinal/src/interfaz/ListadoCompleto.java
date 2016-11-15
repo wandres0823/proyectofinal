@@ -22,8 +22,8 @@ public class ListadoCompleto extends javax.swing.JDialog {
     public ListadoCompleto(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
-        ruta = "src/datos/personas.txt";
-        Helper.llenarTabla(tblTablaPersonas, ruta);
+        ruta = "src/datos/destino.txt";
+        Helper.llenarTablaListado(tblTablaPersonas, ruta);
     }
 
     /**
@@ -122,6 +122,8 @@ public class ListadoCompleto extends javax.swing.JDialog {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(ListadoCompleto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 

@@ -20,7 +20,7 @@ public class ListadoPorOrigen extends javax.swing.JDialog {
     public ListadoPorOrigen(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
-        ruta = "src/datos/personas.txt";
+        ruta = "src/datos/destino.txt";
     }
 
     /**
@@ -155,6 +155,8 @@ public class ListadoPorOrigen extends javax.swing.JDialog {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(ListadoPorOrigen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 

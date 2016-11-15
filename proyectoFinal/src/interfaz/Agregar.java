@@ -64,8 +64,6 @@ public class Agregar extends javax.swing.JDialog {
         txtApellido = new javax.swing.JTextField();
         txtOrigen = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        txtDestino = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         cmdGuardar = new javax.swing.JButton();
         cmdEliminar = new javax.swing.JButton();
@@ -73,9 +71,11 @@ public class Agregar extends javax.swing.JDialog {
         cmdBuscar = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblTablaPersonas = new javax.swing.JTable();
+        jLabel6 = new javax.swing.JLabel();
         lblImagen = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Agregar Pasajeros");
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -87,7 +87,7 @@ public class Agregar extends javax.swing.JDialog {
         jLabel1.setText("Cédula:");
         jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 50, 20));
 
-        txtCedula.setForeground(new java.awt.Color(255, 0, 0));
+        txtCedula.setForeground(new java.awt.Color(0, 0, 204));
         txtCedula.setOpaque(false);
         jPanel2.add(txtCedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 20, 120, -1));
 
@@ -95,7 +95,7 @@ public class Agregar extends javax.swing.JDialog {
         jLabel2.setText("Nombre:");
         jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, -1, 20));
 
-        txtNombre.setForeground(new java.awt.Color(255, 0, 0));
+        txtNombre.setForeground(new java.awt.Color(0, 0, 204));
         txtNombre.setOpaque(false);
         jPanel2.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 50, 120, -1));
 
@@ -103,11 +103,11 @@ public class Agregar extends javax.swing.JDialog {
         jLabel3.setText("Apellido:");
         jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, -1, 20));
 
-        txtApellido.setForeground(new java.awt.Color(255, 0, 0));
+        txtApellido.setForeground(new java.awt.Color(0, 0, 204));
         txtApellido.setOpaque(false);
         jPanel2.add(txtApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 80, 120, -1));
 
-        txtOrigen.setForeground(new java.awt.Color(255, 0, 0));
+        txtOrigen.setForeground(new java.awt.Color(0, 0, 204));
         txtOrigen.setOpaque(false);
         jPanel2.add(txtOrigen, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 110, 120, -1));
 
@@ -115,15 +115,7 @@ public class Agregar extends javax.swing.JDialog {
         jLabel4.setText("Origen:");
         jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, -1, 20));
 
-        txtDestino.setForeground(new java.awt.Color(255, 0, 0));
-        txtDestino.setOpaque(false);
-        jPanel2.add(txtDestino, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 140, 120, -1));
-
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("Destino:");
-        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, -1, 20));
-
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, 230, 180));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 70, 230, 150));
 
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Opciones", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, null, new java.awt.Color(153, 255, 255)));
         jPanel4.setOpaque(false);
@@ -169,18 +161,18 @@ public class Agregar extends javax.swing.JDialog {
         });
         jPanel4.add(cmdBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 100, -1));
 
-        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 40, 120, 160));
+        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 60, 120, 160));
 
         tblTablaPersonas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "No.", "Cédula", "Nombre", "Apellido", "Origen", "Destino"
+                "No.", "Cédula", "Nombre", "Apellido", "Origen"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
+                false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -195,10 +187,15 @@ public class Agregar extends javax.swing.JDialog {
         });
         jScrollPane2.setViewportView(tblTablaPersonas);
 
-        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 230, 440, 190));
+        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 260, 440, 190));
+
+        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(153, 255, 255));
+        jLabel6.setText("Ingreso De Personas");
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 20, -1, -1));
 
         lblImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/foto.jpg"))); // NOI18N
-        jPanel1.add(lblImagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(-150, 0, 730, 430));
+        jPanel1.add(lblImagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(-150, 0, 730, 470));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -221,15 +218,15 @@ public class Agregar extends javax.swing.JDialog {
         nombre = txtNombre.getText();
         apellido = txtApellido.getText();
         origen = txtOrigen.getText();
-        destino = txtDestino.getText();
+        
           ArrayList<Personas> personasModificado;
            try {
             if (aux == 0) {
-        Personas p = new Personas(cedula, nombre, apellido, origen, destino);
+        Personas p = new Personas(cedula, nombre, apellido, origen);
         
             p.guardar(salida);
          } else {
-           personasModificado = Helper.modificarPersona(ruta, cedula, nombre, apellido, origen, destino);
+           personasModificado = Helper.modificarPersona(ruta, cedula, nombre, apellido, origen);
                 salida = new ObjectOutputStream(new FileOutputStream(ruta));
                 Helper.volcado(salida, personasModificado);
                 aux=0;
@@ -245,7 +242,7 @@ public class Agregar extends javax.swing.JDialog {
         txtNombre.setText("");
         txtApellido.setText("");
         txtOrigen.setText("");
-        txtDestino.setText("");
+        
         txtCedula.requestFocusInWindow();
         JButton botonesH[]={cmdBuscar,cmdCancelar};
         JButton botonesD[]={cmdEliminar,cmdGuardar};
@@ -276,7 +273,7 @@ public class Agregar extends javax.swing.JDialog {
             txtNombre.setText("");
             txtApellido.setText("");
             txtOrigen.setText("");
-            txtDestino.setText("");
+            
             txtCedula.requestFocusInWindow();
         }
         JButton botonesH[]={cmdBuscar,cmdCancelar};
@@ -311,7 +308,7 @@ public class Agregar extends javax.swing.JDialog {
         txtNombre.setText(p.getNombre());
         txtApellido.setText(p.getApellido());
         txtOrigen.setText(p.getOrigen());
-        txtDestino.setText(p.getDestino());
+        
 
     }//GEN-LAST:event_tblTablaPersonasMouseClicked
 
@@ -324,7 +321,7 @@ public class Agregar extends javax.swing.JDialog {
             txtNombre.setText(p.getNombre());
             txtApellido.setText(p.getApellido());
             txtOrigen.setText(p.getOrigen());
-            txtDestino.setText(p.getDestino());
+            
           
             aux = 1;
         } else {
@@ -365,6 +362,8 @@ public class Agregar extends javax.swing.JDialog {
         }
         //</editor-fold>
         //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -390,7 +389,7 @@ public class Agregar extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
@@ -399,7 +398,6 @@ public class Agregar extends javax.swing.JDialog {
     private javax.swing.JTable tblTablaPersonas;
     private javax.swing.JTextField txtApellido;
     private javax.swing.JTextField txtCedula;
-    private javax.swing.JTextField txtDestino;
     private javax.swing.JTextField txtNombre;
     private javax.swing.JTextField txtOrigen;
     // End of variables declaration//GEN-END:variables

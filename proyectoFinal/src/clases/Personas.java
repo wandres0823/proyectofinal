@@ -18,14 +18,14 @@ public class Personas implements java.io.Serializable{
     private String nombre;
     private String apellido;
     private String origen;
-    private String destino;
+   
 
-    public Personas(String cedula, String nombre, String apellido, String origen, String destino) {
+    public Personas(String cedula, String nombre, String apellido, String origen) {
         this.cedula = cedula;
         this.nombre = nombre;
         this.apellido = apellido;
         this.origen = origen;
-        this.destino = destino;
+       
     }
 
     public String getCedula() {
@@ -60,18 +60,10 @@ public class Personas implements java.io.Serializable{
         this.origen = origen;
     }
 
-    public String getDestino() {
-        return destino;
-    }
-
-    public void setDestino(String destino) {
-        this.destino = destino;
-    }
-
-  
     public void guardar(ObjectOutputStream salida) throws IOException{
       salida.writeObject(this);
         
     }
 }
+
 
