@@ -60,6 +60,13 @@ public class ListadoPorOrigen extends javax.swing.JDialog {
         jLabel2.setFont(new java.awt.Font("Tahoma", 3, 11)); // NOI18N
         jLabel2.setText("Origen: ");
         jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, -1));
+
+        txtOrigen.setOpaque(false);
+        txtOrigen.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtOrigenKeyTyped(evt);
+            }
+        });
         jPanel2.add(txtOrigen, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, 100, 30));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 90, 190, 70));
@@ -125,10 +132,25 @@ public class ListadoPorOrigen extends javax.swing.JDialog {
 
     private void cmdListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdListarActionPerformed
         String origen =txtOrigen.getText();
+        if (txtOrigen.getText().isEmpty()) {
+            getToolkit().beep();
+            Helper.mensaje(this, "Digite su origen", 3);
+            txtOrigen.requestFocusInWindow();
+           } else{
+            
         Helper.listadoPorOrigen(tblTablaPersonas, ruta, origen);
         txtOrigen.setText("");
         txtOrigen.requestFocusInWindow();
+    }                                         
     }//GEN-LAST:event_cmdListarActionPerformed
+
+    private void txtOrigenKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtOrigenKeyTyped
+         char c = evt.getKeyChar();
+        if (!Character.isLetter(c)) {
+            getToolkit().beep();
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtOrigenKeyTyped
 
     /**
      * @param args the command line arguments
