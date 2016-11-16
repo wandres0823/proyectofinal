@@ -34,6 +34,11 @@ public class Agregar extends javax.swing.JDialog {
     public Agregar(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        JButton botonesH[] = {cmdCancelar,cmdBuscar };
+        JButton botonesD[] = {cmdEliminar, cmdGuardar};
+
+        Helper.habilitarBotones(botonesH);
+        Helper.deshabilitarBotones(botonesD);
         ruta = "src/datos/personas.txt";
         try {
             personas = Helper.traerDatos(ruta);
@@ -89,6 +94,11 @@ public class Agregar extends javax.swing.JDialog {
 
         txtCedula.setForeground(new java.awt.Color(0, 0, 204));
         txtCedula.setOpaque(false);
+        txtCedula.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtCedulaKeyTyped(evt);
+            }
+        });
         jPanel2.add(txtCedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 20, 120, -1));
 
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -97,6 +107,11 @@ public class Agregar extends javax.swing.JDialog {
 
         txtNombre.setForeground(new java.awt.Color(0, 0, 204));
         txtNombre.setOpaque(false);
+        txtNombre.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtNombreKeyTyped(evt);
+            }
+        });
         jPanel2.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 50, 120, -1));
 
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
@@ -105,10 +120,20 @@ public class Agregar extends javax.swing.JDialog {
 
         txtApellido.setForeground(new java.awt.Color(0, 0, 204));
         txtApellido.setOpaque(false);
+        txtApellido.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtApellidoKeyTyped(evt);
+            }
+        });
         jPanel2.add(txtApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 80, 120, -1));
 
         txtOrigen.setForeground(new java.awt.Color(0, 0, 204));
         txtOrigen.setOpaque(false);
+        txtOrigen.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtOrigenKeyTyped(evt);
+            }
+        });
         jPanel2.add(txtOrigen, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 110, 120, -1));
 
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
@@ -121,47 +146,51 @@ public class Agregar extends javax.swing.JDialog {
         jPanel4.setOpaque(false);
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        cmdGuardar.setText("Guardar");
+        cmdGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/1479249679_save.png"))); // NOI18N
         cmdGuardar.setBorderPainted(false);
-        cmdGuardar.setOpaque(false);
+        cmdGuardar.setContentAreaFilled(false);
+        cmdGuardar.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/1479249681_save.png"))); // NOI18N
         cmdGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmdGuardarActionPerformed(evt);
             }
         });
-        jPanel4.add(cmdGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 100, -1));
+        jPanel4.add(cmdGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 60, 40));
 
-        cmdEliminar.setText("Eliminar");
+        cmdEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/1479249785_free-27.png"))); // NOI18N
         cmdEliminar.setBorderPainted(false);
-        cmdEliminar.setOpaque(false);
+        cmdEliminar.setContentAreaFilled(false);
+        cmdEliminar.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/1479249786_free-27.png"))); // NOI18N
         cmdEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmdEliminarActionPerformed(evt);
             }
         });
-        jPanel4.add(cmdEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 100, -1));
+        jPanel4.add(cmdEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 60, -1));
 
-        cmdCancelar.setText("Cancelar");
+        cmdCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/1479249854_Close_Icon.png"))); // NOI18N
         cmdCancelar.setBorderPainted(false);
-        cmdCancelar.setOpaque(false);
+        cmdCancelar.setContentAreaFilled(false);
+        cmdCancelar.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/1479249855_Close_Icon.png"))); // NOI18N
         cmdCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmdCancelarActionPerformed(evt);
             }
         });
-        jPanel4.add(cmdCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, 100, -1));
+        jPanel4.add(cmdCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 60, -1));
 
-        cmdBuscar.setText("Buscar");
+        cmdBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/1479249453_system-search.png"))); // NOI18N
         cmdBuscar.setBorderPainted(false);
-        cmdBuscar.setOpaque(false);
+        cmdBuscar.setContentAreaFilled(false);
+        cmdBuscar.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/1479249454_system-search.png"))); // NOI18N
         cmdBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmdBuscarActionPerformed(evt);
             }
         });
-        jPanel4.add(cmdBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 100, -1));
+        jPanel4.add(cmdBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 60, 30));
 
-        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 60, 120, 160));
+        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 60, 100, 170));
 
         tblTablaPersonas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -187,7 +216,7 @@ public class Agregar extends javax.swing.JDialog {
         });
         jScrollPane2.setViewportView(tblTablaPersonas);
 
-        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 260, 440, 190));
+        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, 520, 190));
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(153, 255, 255));
@@ -218,7 +247,21 @@ public class Agregar extends javax.swing.JDialog {
         nombre = txtNombre.getText();
         apellido = txtApellido.getText();
         origen = txtOrigen.getText();
-        
+       
+        if (txtNombre.getText().isEmpty()) {
+            getToolkit().beep();
+            Helper.mensaje(this, "Digite su Nombre", 3);
+            txtNombre.requestFocusInWindow();
+        } else if (txtApellido.getText().isEmpty()) {
+            getToolkit().beep();
+            Helper.mensaje(this, "Digite su Apellido", 3);
+            txtApellido.requestFocusInWindow();
+        }  else if (txtOrigen.getText().isEmpty()) {
+            getToolkit().beep();
+            Helper.mensaje(this, "Digite su Origen", 3);
+            txtOrigen.requestFocusInWindow();
+        } 
+        else{
           ArrayList<Personas> personasModificado;
            try {
             if (aux == 0) {
@@ -244,12 +287,12 @@ public class Agregar extends javax.swing.JDialog {
         txtOrigen.setText("");
         
         txtCedula.requestFocusInWindow();
-        JButton botonesH[]={cmdBuscar,cmdCancelar};
-        JButton botonesD[]={cmdEliminar,cmdGuardar};
-        
+        JButton botonesH[] = {cmdCancelar,cmdBuscar };
+        JButton botonesD[] = {cmdEliminar, cmdGuardar};
+
         Helper.habilitarBotones(botonesH);
         Helper.deshabilitarBotones(botonesD);
-
+        }
     }//GEN-LAST:event_cmdGuardarActionPerformed
 
     private void cmdEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdEliminarActionPerformed
@@ -287,6 +330,7 @@ public class Agregar extends javax.swing.JDialog {
         txtCedula.setText("");
         txtNombre.setText("");
         txtApellido.setText("");
+        txtOrigen.setText("");
 
         txtCedula.requestFocusInWindow();
         JButton botonesH[]={cmdBuscar,cmdCancelar};
@@ -309,6 +353,10 @@ public class Agregar extends javax.swing.JDialog {
         txtApellido.setText(p.getApellido());
         txtOrigen.setText(p.getOrigen());
         
+        JButton botonesH[]={cmdEliminar};
+        
+        Helper.habilitarBotones(botonesH);
+     
 
     }//GEN-LAST:event_tblTablaPersonasMouseClicked
 
@@ -316,6 +364,16 @@ public class Agregar extends javax.swing.JDialog {
         String cedula;
         cedula = txtCedula.getText();
         Personas p;
+        
+        if (txtCedula.getText().isEmpty()) {
+            getToolkit().beep();
+            Helper.mensaje(this, "Digite Numero de su Cedula", 3);
+            txtCedula.requestFocusInWindow();
+        }
+        
+        else{
+        
+        
         if (Helper.buscarPersonaCedula(cedula, ruta)) {
             p = Helper.traerPersonaCedula(cedula, ruta);
             txtNombre.setText(p.getNombre());
@@ -328,12 +386,45 @@ public class Agregar extends javax.swing.JDialog {
             txtNombre.requestFocusInWindow();
             aux = 0;
         }
-        JButton botonesH[]={cmdGuardar,cmdCancelar, cmdEliminar};
-        JButton botonesD[]={cmdBuscar};
+        JButton botonesH[]={cmdGuardar,cmdCancelar};
+        JButton botonesD[]={cmdBuscar, cmdEliminar};
         
         Helper.habilitarBotones(botonesH);
         Helper.deshabilitarBotones(botonesD);
+        }
     }//GEN-LAST:event_cmdBuscarActionPerformed
+
+    private void txtCedulaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCedulaKeyTyped
+     char c = evt.getKeyChar();
+        if (!Character.isDigit(c)) {
+            getToolkit().beep();
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtCedulaKeyTyped
+
+    private void txtNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreKeyTyped
+     char c = evt.getKeyChar();
+        if (!Character.isLetter(c)) {
+            getToolkit().beep();
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtNombreKeyTyped
+
+    private void txtApellidoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtApellidoKeyTyped
+    char c = evt.getKeyChar();
+        if (!Character.isLetter(c)) {
+            getToolkit().beep();
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtApellidoKeyTyped
+
+    private void txtOrigenKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtOrigenKeyTyped
+     char c = evt.getKeyChar();
+        if (!Character.isLetter(c)) {
+            getToolkit().beep();
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtOrigenKeyTyped
 
     /**
      * @param args the command line arguments
@@ -360,6 +451,10 @@ public class Agregar extends javax.swing.JDialog {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(Agregar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>

@@ -36,8 +36,8 @@ public class AgregarDestino extends javax.swing.JDialog {
     public AgregarDestino(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
-        JButton botonesH[] = {cmdEliminar,cmdBuscar, cmdCancelar, cmdGuardar};
-        JButton botonesD[] = {};
+        JButton botonesH[] = {cmdCancelar,cmdBuscar };
+        JButton botonesD[] = {cmdEliminar, cmdGuardar};
 
         Helper.habilitarBotones(botonesH);
         Helper.deshabilitarBotones(botonesD);
@@ -110,6 +110,7 @@ public class AgregarDestino extends javax.swing.JDialog {
         cmdGuardar = new javax.swing.JButton();
         cmdCancelar = new javax.swing.JButton();
         cmdEliminar = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Agregar Destino");
@@ -243,12 +244,23 @@ public class AgregarDestino extends javax.swing.JDialog {
         jPanel3.add(jPanel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 130, 140, 190));
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Datos"));
+        jPanel2.setOpaque(false);
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel4.setText("Cedula:");
         jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, 20));
 
+        cmbPasajeros.setBackground(new java.awt.Color(0, 102, 255));
+        cmbPasajeros.setOpaque(false);
         jPanel2.add(cmbPasajeros, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 50, 200, -1));
+
+        txtCedula.setForeground(new java.awt.Color(0, 0, 255));
+        txtCedula.setOpaque(false);
+        txtCedula.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtCedulaKeyTyped(evt);
+            }
+        });
         jPanel2.add(txtCedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, 100, -1));
 
         jLabel20.setText("Pasajero:");
@@ -299,6 +311,7 @@ public class AgregarDestino extends javax.swing.JDialog {
         jPanel3.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 340, 140, 190));
 
         jPanel13.setBorder(javax.swing.BorderFactory.createTitledBorder("Carros"));
+        jPanel13.setOpaque(false);
         jPanel13.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tblDestinos.setModel(new javax.swing.table.DefaultTableModel(
@@ -317,6 +330,11 @@ public class AgregarDestino extends javax.swing.JDialog {
                 return canEdit [columnIndex];
             }
         });
+        tblDestinos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblDestinosMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(tblDestinos);
 
         jPanel13.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 570, 130));
@@ -324,41 +342,57 @@ public class AgregarDestino extends javax.swing.JDialog {
         jPanel3.add(jPanel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 540, 610, 160));
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Opciones"));
+        jPanel1.setOpaque(false);
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        cmdBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/1479249453_system-search.png"))); // NOI18N
         cmdBuscar.setText("Buscar");
+        cmdBuscar.setContentAreaFilled(false);
+        cmdBuscar.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/1479249454_system-search.png"))); // NOI18N
         cmdBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmdBuscarActionPerformed(evt);
             }
         });
-        jPanel1.add(cmdBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 100, -1));
+        jPanel1.add(cmdBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 110, -1));
 
+        cmdGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/1479249679_save.png"))); // NOI18N
         cmdGuardar.setText("Guardar");
+        cmdGuardar.setContentAreaFilled(false);
+        cmdGuardar.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/1479249681_save.png"))); // NOI18N
         cmdGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmdGuardarActionPerformed(evt);
             }
         });
-        jPanel1.add(cmdGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 30, 100, -1));
+        jPanel1.add(cmdGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 30, 110, -1));
 
+        cmdCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/1479249854_Close_Icon.png"))); // NOI18N
         cmdCancelar.setText("Cancelar");
+        cmdCancelar.setContentAreaFilled(false);
+        cmdCancelar.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/1479249855_Close_Icon.png"))); // NOI18N
         cmdCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmdCancelarActionPerformed(evt);
             }
         });
-        jPanel1.add(cmdCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 30, 100, -1));
+        jPanel1.add(cmdCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 31, 120, 30));
 
+        cmdEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/1479249785_free-27.png"))); // NOI18N
         cmdEliminar.setText("Eliminar");
+        cmdEliminar.setContentAreaFilled(false);
+        cmdEliminar.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/1479249786_free-27.png"))); // NOI18N
         cmdEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmdEliminarActionPerformed(evt);
             }
         });
-        jPanel1.add(cmdEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 30, 100, -1));
+        jPanel1.add(cmdEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 30, 110, -1));
 
-        jPanel3.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 40, 540, 80));
+        jPanel3.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 40, 480, 80));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/wallpapers-paisajes-nublado-cielo-73719.jpg"))); // NOI18N
+        jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 930, 710));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -381,6 +415,12 @@ public class AgregarDestino extends javax.swing.JDialog {
         int indice;
         Personas pasajeros;
         
+        if (!(cmdBarranquilla.isSelected() || cmdBogota.isSelected() || cmdMadrid.isSelected() || cmdMiami.isSelected()
+        || cmdNuevaYork.isSelected() || cmdParis.isSelected() || cmdRioDeJaneiro.isSelected() || cmdSanAndres.isSelected())){
+            getToolkit().beep();
+            Helper.mensaje(this, "Digite su Destino", 3);    
+        }else{
+
         auxPasajero = cmbPasajeros.getSelectedItem().toString();
         indice = auxPasajero.indexOf("-") - 1;
         cedula = auxPasajero.substring(0, indice);
@@ -410,21 +450,22 @@ public class AgregarDestino extends javax.swing.JDialog {
         cmbPasajeros.setSelectedIndex(0);
         cmdDestino.clearSelection();
         
-        JButton botonesD[] = { cmdCancelar};
-        JButton botonesH[] = {cmdBuscar,cmdEliminar, cmdGuardar};
+        JButton botonesH[] = {cmdCancelar,cmdBuscar };
+        JButton botonesD[] = {cmdEliminar, cmdGuardar};
 
         Helper.habilitarBotones(botonesH);
         Helper.deshabilitarBotones(botonesD);
+        }
     }//GEN-LAST:event_cmdGuardarActionPerformed
 
     private void cmdCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdCancelarActionPerformed
-        
+        txtCedula.setText("");
         cmbPasajeros.setSelectedIndex(0);
         cmdDestino.clearSelection();
         
-        JButton botonesD[] = { cmdCancelar};
-        JButton botonesH[] = {cmdBuscar,cmdEliminar, cmdGuardar};
-
+         JButton botonesH[]={cmdBuscar,cmdCancelar};
+        JButton botonesD[]={cmdEliminar,cmdGuardar};
+        
         Helper.habilitarBotones(botonesH);
         Helper.deshabilitarBotones(botonesD);
     }//GEN-LAST:event_cmdCancelarActionPerformed
@@ -434,6 +475,15 @@ public class AgregarDestino extends javax.swing.JDialog {
         Personas pasajeros;
         cedula = txtCedula.getText();
         Destino d;
+        
+        if (txtCedula.getText().isEmpty()) {
+            getToolkit().beep();
+            Helper.mensaje(this, "Digite Numero de su Cedula", 3);
+            txtCedula.requestFocusInWindow();
+        }
+        
+        else{
+        
         if (Helper.buscarDestino(cedula, rutaD)) {
             d = Helper.traerDestino(cedula, rutaD);
             txtCedula.setText(d.getPasajero().getCedula());
@@ -447,11 +497,12 @@ public class AgregarDestino extends javax.swing.JDialog {
             txtCedula.requestFocusInWindow();
             aux = 0;
         }
-        JButton botonesH[] = {cmdGuardar, cmdCancelar, cmdEliminar};
-        JButton botonesD[] = {cmdBuscar};
-
+       JButton botonesH[]={cmdGuardar,cmdCancelar};
+        JButton botonesD[]={cmdBuscar, cmdEliminar};
+        
         Helper.habilitarBotones(botonesH);
-      Helper.deshabilitarBotones(botonesD);  
+        Helper.deshabilitarBotones(botonesD);
+        }
     }//GEN-LAST:event_cmdBuscarActionPerformed
 
     private void cmdMadridActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdMadridActionPerformed
@@ -510,12 +561,35 @@ public class AgregarDestino extends javax.swing.JDialog {
           
             txtCedula.requestFocusInWindow();
         }
-        JButton botonesH[] = { cmdCancelar};
-        JButton botonesD[] = {cmdBuscar,cmdEliminar, cmdGuardar};
+        JButton botonesH[]={cmdBuscar,cmdCancelar};
+        JButton botonesD[]={cmdEliminar,cmdGuardar};
         
         Helper.habilitarBotones(botonesH);
         Helper.deshabilitarBotones(botonesD);
     }//GEN-LAST:event_cmdEliminarActionPerformed
+
+    private void txtCedulaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCedulaKeyTyped
+    char c = evt.getKeyChar();
+        if (!Character.isDigit(c)) {
+            getToolkit().beep();
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtCedulaKeyTyped
+
+    private void tblDestinosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblDestinosMouseClicked
+     int i;
+        Destino d;
+        ArrayList<Destino> destinoss = Helper.traerDatos(rutaD);
+        i = tblDestinos.getSelectedRow();
+
+        d = destinoss.get(i);
+
+        txtCedula.setText(d.getPasajero().getCedula());
+
+        JButton botonesH[]={cmdEliminar};
+        
+        Helper.habilitarBotones(botonesH);
+    }//GEN-LAST:event_tblDestinosMouseClicked
 
     /**
      * @param args the command line arguments
@@ -542,6 +616,8 @@ public class AgregarDestino extends javax.swing.JDialog {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(AgregarDestino.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
@@ -575,6 +651,7 @@ public class AgregarDestino extends javax.swing.JDialog {
     private javax.swing.JRadioButton cmdParis;
     private javax.swing.JRadioButton cmdRioDeJaneiro;
     private javax.swing.JRadioButton cmdSanAndres;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;

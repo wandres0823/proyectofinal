@@ -6,46 +6,36 @@
       <SubComponents>
         <Menu class="javax.swing.JMenu" name="mnOpciones">
           <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/imagen/1479248415_vector_66_14.png"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Opciones"/>
+            <Property name="selectedIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/imagen/1479248417_vector_66_14.png"/>
+            </Property>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JPopupMenu$Separator" name="jSeparator1">
-            </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="mnSalir">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Salir"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mnSalirActionPerformed"/>
-              </Events>
-            </MenuItem>
-          </SubComponents>
-        </Menu>
-        <Menu class="javax.swing.JMenu" name="MnPasajeros">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Pasajeros"/>
-          </Properties>
-          <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="mnagregar">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Agregar"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mnagregarActionPerformed"/>
-              </Events>
-            </MenuItem>
             <Menu class="javax.swing.JMenu" name="MnReportes">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/imagen/1479248956_reports.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Reportes"/>
               </Properties>
               <SubComponents>
                 <Menu class="javax.swing.JMenu" name="MnListados">
                   <Properties>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/imagen/1479249041_list-alt.png"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Listados"/>
                   </Properties>
                   <SubComponents>
                     <MenuItem class="javax.swing.JMenuItem" name="MnListadoCompleto">
                       <Properties>
+                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                          <Image iconType="3" name="/imagen/1479248987_sign-up.png"/>
+                        </Property>
                         <Property name="text" type="java.lang.String" value="Listado Completo"/>
                       </Properties>
                       <Events>
@@ -54,6 +44,9 @@
                     </MenuItem>
                     <MenuItem class="javax.swing.JMenuItem" name="MnListadoPorOrigen">
                       <Properties>
+                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                          <Image iconType="3" name="/imagen/1479249186_travel_journey-15.png"/>
+                        </Property>
                         <Property name="text" type="java.lang.String" value="Listado Por Origen"/>
                       </Properties>
                       <Events>
@@ -64,11 +57,17 @@
                 </Menu>
                 <Menu class="javax.swing.JMenu" name="MnCantidades">
                   <Properties>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/imagen/1479249120_kuser.png"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Cantidades"/>
                   </Properties>
                   <SubComponents>
                     <MenuItem class="javax.swing.JMenuItem" name="MnNoPasajeros">
                       <Properties>
+                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                          <Image iconType="3" name="/imagen/1479249224_adult-children.png"/>
+                        </Property>
                         <Property name="text" type="java.lang.String" value="Numero de Pasajeros"/>
                       </Properties>
                       <Events>
@@ -79,15 +78,55 @@
                 </Menu>
               </SubComponents>
             </Menu>
+            <MenuItem class="javax.swing.JPopupMenu$Separator" name="jSeparator2">
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="mnSalir">
+              <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/imagen/1479248658_exit.png"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Salir"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mnSalirActionPerformed"/>
+              </Events>
+            </MenuItem>
+          </SubComponents>
+        </Menu>
+        <Menu class="javax.swing.JMenu" name="MnPasajeros">
+          <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/imagen/1479248737_taxi_passanger.png"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Pasajeros"/>
+          </Properties>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="mnagregar">
+              <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/imagen/1479248875_user-group-new.png"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Agregar"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mnagregarActionPerformed"/>
+              </Events>
+            </MenuItem>
           </SubComponents>
         </Menu>
         <Menu class="javax.swing.JMenu" name="MnDestino">
           <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/imagen/1479249263_resolutions-21.png"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Destino"/>
           </Properties>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="MnAgregarDestino">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/imagen/1479249350_plane-up.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Agregar"/>
               </Properties>
               <Events>

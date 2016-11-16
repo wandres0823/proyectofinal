@@ -35,16 +35,16 @@ public class Principal extends javax.swing.JFrame {
         imagen = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         mnOpciones = new javax.swing.JMenu();
-        jSeparator1 = new javax.swing.JPopupMenu.Separator();
-        mnSalir = new javax.swing.JMenuItem();
-        MnPasajeros = new javax.swing.JMenu();
-        mnagregar = new javax.swing.JMenuItem();
         MnReportes = new javax.swing.JMenu();
         MnListados = new javax.swing.JMenu();
         MnListadoCompleto = new javax.swing.JMenuItem();
         MnListadoPorOrigen = new javax.swing.JMenuItem();
         MnCantidades = new javax.swing.JMenu();
         MnNoPasajeros = new javax.swing.JMenuItem();
+        jSeparator2 = new javax.swing.JPopupMenu.Separator();
+        mnSalir = new javax.swing.JMenuItem();
+        MnPasajeros = new javax.swing.JMenu();
+        mnagregar = new javax.swing.JMenuItem();
         MnDestino = new javax.swing.JMenu();
         MnAgregarDestino = new javax.swing.JMenuItem();
 
@@ -56,33 +56,17 @@ public class Principal extends javax.swing.JFrame {
         imagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/Aerolinea.PNG"))); // NOI18N
         jPanel1.add(imagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 0, 780, -1));
 
+        mnOpciones.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/1479248415_vector_66_14.png"))); // NOI18N
         mnOpciones.setText("Opciones");
-        mnOpciones.add(jSeparator1);
+        mnOpciones.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/1479248417_vector_66_14.png"))); // NOI18N
 
-        mnSalir.setText("Salir");
-        mnSalir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mnSalirActionPerformed(evt);
-            }
-        });
-        mnOpciones.add(mnSalir);
-
-        jMenuBar1.add(mnOpciones);
-
-        MnPasajeros.setText("Pasajeros");
-
-        mnagregar.setText("Agregar");
-        mnagregar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mnagregarActionPerformed(evt);
-            }
-        });
-        MnPasajeros.add(mnagregar);
-
+        MnReportes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/1479248956_reports.png"))); // NOI18N
         MnReportes.setText("Reportes");
 
+        MnListados.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/1479249041_list-alt.png"))); // NOI18N
         MnListados.setText("Listados");
 
+        MnListadoCompleto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/1479248987_sign-up.png"))); // NOI18N
         MnListadoCompleto.setText("Listado Completo");
         MnListadoCompleto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -91,6 +75,7 @@ public class Principal extends javax.swing.JFrame {
         });
         MnListados.add(MnListadoCompleto);
 
+        MnListadoPorOrigen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/1479249186_travel_journey-15.png"))); // NOI18N
         MnListadoPorOrigen.setText("Listado Por Origen");
         MnListadoPorOrigen.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -101,8 +86,10 @@ public class Principal extends javax.swing.JFrame {
 
         MnReportes.add(MnListados);
 
+        MnCantidades.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/1479249120_kuser.png"))); // NOI18N
         MnCantidades.setText("Cantidades");
 
+        MnNoPasajeros.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/1479249224_adult-children.png"))); // NOI18N
         MnNoPasajeros.setText("Numero de Pasajeros");
         MnNoPasajeros.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -113,12 +100,38 @@ public class Principal extends javax.swing.JFrame {
 
         MnReportes.add(MnCantidades);
 
-        MnPasajeros.add(MnReportes);
+        mnOpciones.add(MnReportes);
+        mnOpciones.add(jSeparator2);
+
+        mnSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/1479248658_exit.png"))); // NOI18N
+        mnSalir.setText("Salir");
+        mnSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnSalirActionPerformed(evt);
+            }
+        });
+        mnOpciones.add(mnSalir);
+
+        jMenuBar1.add(mnOpciones);
+
+        MnPasajeros.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/1479248737_taxi_passanger.png"))); // NOI18N
+        MnPasajeros.setText("Pasajeros");
+
+        mnagregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/1479248875_user-group-new.png"))); // NOI18N
+        mnagregar.setText("Agregar");
+        mnagregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnagregarActionPerformed(evt);
+            }
+        });
+        MnPasajeros.add(mnagregar);
 
         jMenuBar1.add(MnPasajeros);
 
+        MnDestino.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/1479249263_resolutions-21.png"))); // NOI18N
         MnDestino.setText("Destino");
 
+        MnAgregarDestino.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/1479249350_plane-up.png"))); // NOI18N
         MnAgregarDestino.setText("Agregar");
         MnAgregarDestino.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -205,6 +218,10 @@ public class Principal extends javax.swing.JFrame {
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -227,7 +244,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel imagen;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPopupMenu.Separator jSeparator1;
+    private javax.swing.JPopupMenu.Separator jSeparator2;
     private javax.swing.JMenu mnOpciones;
     private javax.swing.JMenuItem mnSalir;
     private javax.swing.JMenuItem mnagregar;
