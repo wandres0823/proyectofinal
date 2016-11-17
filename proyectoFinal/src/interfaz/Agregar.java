@@ -59,6 +59,7 @@ public class Agregar extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        Sexo = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -69,6 +70,9 @@ public class Agregar extends javax.swing.JDialog {
         txtApellido = new javax.swing.JTextField();
         txtOrigen = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        checkBoxMasculino = new javax.swing.JCheckBox();
+        checkBoxFemenino = new javax.swing.JCheckBox();
         jPanel4 = new javax.swing.JPanel();
         cmdGuardar = new javax.swing.JButton();
         cmdEliminar = new javax.swing.JButton();
@@ -140,7 +144,19 @@ public class Agregar extends javax.swing.JDialog {
         jLabel4.setText("Origen:");
         jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, -1, 20));
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 70, 230, 150));
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("Sexo:");
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, -1, -1));
+
+        Sexo.add(checkBoxMasculino);
+        checkBoxMasculino.setText("Masculino");
+        jPanel2.add(checkBoxMasculino, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 140, -1, -1));
+
+        Sexo.add(checkBoxFemenino);
+        checkBoxFemenino.setText("Femenino");
+        jPanel2.add(checkBoxFemenino, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 140, -1, -1));
+
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 70, 260, 180));
 
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Opciones", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, null, new java.awt.Color(153, 255, 255)));
         jPanel4.setOpaque(false);
@@ -197,11 +213,11 @@ public class Agregar extends javax.swing.JDialog {
 
             },
             new String [] {
-                "No.", "Cédula", "Nombre", "Apellido", "Origen"
+                "No.", "Cédula", "Nombre", "Apellido", "Origen", "Sexo"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+                false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -242,11 +258,18 @@ public class Agregar extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void cmdGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdGuardarActionPerformed
-        String cedula, nombre, apellido, origen, destino;
+        String cedula, nombre, apellido, origen, destino,sexo="";
         cedula = txtCedula.getText();
         nombre = txtNombre.getText();
         apellido = txtApellido.getText();
         origen = txtOrigen.getText();
+        
+        if(checkBoxMasculino.isSelected()){
+        sexo="Masculino";
+        }else if(checkBoxFemenino.isSelected()){
+        sexo="Femenino";    
+        }
+        
        
         if (txtNombre.getText().isEmpty()) {
             getToolkit().beep();
@@ -260,12 +283,15 @@ public class Agregar extends javax.swing.JDialog {
             getToolkit().beep();
             Helper.mensaje(this, "Digite su Origen", 3);
             txtOrigen.requestFocusInWindow();
+        } else if (!(checkBoxFemenino.isSelected() || checkBoxMasculino.isSelected())) {
+            getToolkit().beep();
+            Helper.mensaje(this, "Seleccione su Sexo", 3);
         } 
         else{
           ArrayList<Personas> personasModificado;
            try {
             if (aux == 0) {
-        Personas p = new Personas(cedula, nombre, apellido, origen);
+        Personas p = new Personas(cedula, nombre, apellido, origen,sexo);
         
             p.guardar(salida);
          } else {
@@ -285,6 +311,7 @@ public class Agregar extends javax.swing.JDialog {
         txtNombre.setText("");
         txtApellido.setText("");
         txtOrigen.setText("");
+        Sexo.clearSelection();
         
         txtCedula.requestFocusInWindow();
         JButton botonesH[] = {cmdCancelar,cmdBuscar };
@@ -331,6 +358,7 @@ public class Agregar extends javax.swing.JDialog {
         txtNombre.setText("");
         txtApellido.setText("");
         txtOrigen.setText("");
+        Sexo.clearSelection();
 
         txtCedula.requestFocusInWindow();
         JButton botonesH[]={cmdBuscar,cmdCancelar};
@@ -352,6 +380,7 @@ public class Agregar extends javax.swing.JDialog {
         txtNombre.setText(p.getNombre());
         txtApellido.setText(p.getApellido());
         txtOrigen.setText(p.getOrigen());
+        
         
         JButton botonesH[]={cmdEliminar};
         
@@ -379,6 +408,7 @@ public class Agregar extends javax.swing.JDialog {
             txtNombre.setText(p.getNombre());
             txtApellido.setText(p.getApellido());
             txtOrigen.setText(p.getOrigen());
+            
             
           
             aux = 1;
@@ -476,6 +506,9 @@ public class Agregar extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.ButtonGroup Sexo;
+    private javax.swing.JCheckBox checkBoxFemenino;
+    private javax.swing.JCheckBox checkBoxMasculino;
     private javax.swing.JButton cmdBuscar;
     private javax.swing.JButton cmdCancelar;
     private javax.swing.JButton cmdEliminar;
@@ -484,6 +517,7 @@ public class Agregar extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

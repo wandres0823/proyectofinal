@@ -18,18 +18,27 @@ public class Personas implements java.io.Serializable{
     private String nombre;
     private String apellido;
     private String origen;
+    private String sexo;
    
 
-    public Personas(String cedula, String nombre, String apellido, String origen) {
+    public Personas(String cedula, String nombre, String apellido, String origen,String sexo) {
         this.cedula = cedula;
         this.nombre = nombre;
         this.apellido = apellido;
         this.origen = origen;
-       
+        this.sexo = sexo;
     }
 
     public String getCedula() {
         return cedula;
+    }
+
+    public String getSexo() {
+        return sexo;
+    }
+
+    public void setSexo(String sexo) {
+        this.sexo = sexo;
     }
 
     public void setCedula(String cedula) {

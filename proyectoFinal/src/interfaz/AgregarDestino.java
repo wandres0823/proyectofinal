@@ -28,7 +28,7 @@ public class AgregarDestino extends javax.swing.JDialog {
     /**
      * Creates new form AgregarDestino
      */
-    String rutaD, rutaP,destino;
+    String rutaD, rutaP;
 
     ObjectOutputStream salida;
     ArrayList<Destino> destinos;
@@ -67,27 +67,27 @@ public class AgregarDestino extends javax.swing.JDialog {
         jPanel3 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
-        cmdRioDeJaneiro = new javax.swing.JRadioButton();
+        radioButtonRioDeJaneiro = new javax.swing.JRadioButton();
         jLabel9 = new javax.swing.JLabel();
         jPanel8 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
-        cmdMiami = new javax.swing.JRadioButton();
+        radioButtonMiami = new javax.swing.JRadioButton();
         jLabel6 = new javax.swing.JLabel();
         jPanel9 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
-        cmdParis = new javax.swing.JRadioButton();
+        radioButtonParis = new javax.swing.JRadioButton();
         jLabel12 = new javax.swing.JLabel();
         jPanel10 = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
-        cmdSanAndres = new javax.swing.JRadioButton();
+        radioButtonSanAndres = new javax.swing.JRadioButton();
         jLabel15 = new javax.swing.JLabel();
         jPanel11 = new javax.swing.JPanel();
         jLabel16 = new javax.swing.JLabel();
-        cmdBarranquilla = new javax.swing.JRadioButton();
+        radioButtonBarranquilla = new javax.swing.JRadioButton();
         jLabel17 = new javax.swing.JLabel();
         jPanel12 = new javax.swing.JPanel();
         jLabel18 = new javax.swing.JLabel();
-        cmdNuevaYork = new javax.swing.JRadioButton();
+        radioButtonNuevaYork = new javax.swing.JRadioButton();
         jLabel19 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
@@ -96,11 +96,11 @@ public class AgregarDestino extends javax.swing.JDialog {
         jLabel20 = new javax.swing.JLabel();
         jPanel7 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        cmdBogota = new javax.swing.JRadioButton();
+        radioButtonBogota = new javax.swing.JRadioButton();
         jLabel5 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
-        cmdMadrid = new javax.swing.JRadioButton();
+        radioButtonMadrid = new javax.swing.JRadioButton();
         jLabel11 = new javax.swing.JLabel();
         jPanel13 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -124,13 +124,8 @@ public class AgregarDestino extends javax.swing.JDialog {
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/rio.jpg"))); // NOI18N
         jPanel5.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 120, 120));
 
-        cmdDestino.add(cmdRioDeJaneiro);
-        cmdRioDeJaneiro.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmdRioDeJaneiroActionPerformed(evt);
-            }
-        });
-        jPanel5.add(cmdRioDeJaneiro, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, -1, -1));
+        cmdDestino.add(radioButtonRioDeJaneiro);
+        jPanel5.add(radioButtonRioDeJaneiro, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, -1, -1));
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 3, 11)); // NOI18N
         jLabel9.setText("Rio De Janeiro");
@@ -145,13 +140,8 @@ public class AgregarDestino extends javax.swing.JDialog {
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/miami.jpg"))); // NOI18N
         jPanel8.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 120, 120));
 
-        cmdDestino.add(cmdMiami);
-        cmdMiami.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmdMiamiActionPerformed(evt);
-            }
-        });
-        jPanel8.add(cmdMiami, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, -1, -1));
+        cmdDestino.add(radioButtonMiami);
+        jPanel8.add(radioButtonMiami, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 3, 11)); // NOI18N
         jLabel6.setText("Miami");
@@ -166,13 +156,8 @@ public class AgregarDestino extends javax.swing.JDialog {
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/paris-15.jpg"))); // NOI18N
         jPanel9.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 120, 120));
 
-        cmdDestino.add(cmdParis);
-        cmdParis.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmdParisActionPerformed(evt);
-            }
-        });
-        jPanel9.add(cmdParis, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, -1, -1));
+        cmdDestino.add(radioButtonParis);
+        jPanel9.add(radioButtonParis, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, -1, -1));
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 3, 11)); // NOI18N
         jLabel12.setText("Paris");
@@ -187,13 +172,8 @@ public class AgregarDestino extends javax.swing.JDialog {
         jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/San Andres.jpg"))); // NOI18N
         jPanel10.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 120, 120));
 
-        cmdDestino.add(cmdSanAndres);
-        cmdSanAndres.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmdSanAndresActionPerformed(evt);
-            }
-        });
-        jPanel10.add(cmdSanAndres, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, -1, -1));
+        cmdDestino.add(radioButtonSanAndres);
+        jPanel10.add(radioButtonSanAndres, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, -1, -1));
 
         jLabel15.setFont(new java.awt.Font("Tahoma", 3, 11)); // NOI18N
         jLabel15.setText("San Andres");
@@ -208,13 +188,8 @@ public class AgregarDestino extends javax.swing.JDialog {
         jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/Barranquilla.jpg"))); // NOI18N
         jPanel11.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, -1, 120));
 
-        cmdDestino.add(cmdBarranquilla);
-        cmdBarranquilla.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmdBarranquillaActionPerformed(evt);
-            }
-        });
-        jPanel11.add(cmdBarranquilla, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, -1, -1));
+        cmdDestino.add(radioButtonBarranquilla);
+        jPanel11.add(radioButtonBarranquilla, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, -1, -1));
 
         jLabel17.setFont(new java.awt.Font("Tahoma", 3, 11)); // NOI18N
         jLabel17.setText("Barranquilla");
@@ -229,13 +204,8 @@ public class AgregarDestino extends javax.swing.JDialog {
         jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/NYC.jpg"))); // NOI18N
         jPanel12.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 120, 120));
 
-        cmdDestino.add(cmdNuevaYork);
-        cmdNuevaYork.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmdNuevaYorkActionPerformed(evt);
-            }
-        });
-        jPanel12.add(cmdNuevaYork, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, -1, -1));
+        cmdDestino.add(radioButtonNuevaYork);
+        jPanel12.add(radioButtonNuevaYork, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, -1, -1));
 
         jLabel19.setFont(new java.awt.Font("Tahoma", 3, 11)); // NOI18N
         jLabel19.setText("Nueva York");
@@ -275,13 +245,8 @@ public class AgregarDestino extends javax.swing.JDialog {
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/Bogota.jpg"))); // NOI18N
         jPanel7.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 120, 120));
 
-        cmdDestino.add(cmdBogota);
-        cmdBogota.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmdBogotaActionPerformed(evt);
-            }
-        });
-        jPanel7.add(cmdBogota, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, -1, -1));
+        cmdDestino.add(radioButtonBogota);
+        jPanel7.add(radioButtonBogota, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 3, 11)); // NOI18N
         jLabel5.setText("Bogota");
@@ -296,13 +261,8 @@ public class AgregarDestino extends javax.swing.JDialog {
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/madrid.jpg"))); // NOI18N
         jPanel6.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 120, 120));
 
-        cmdDestino.add(cmdMadrid);
-        cmdMadrid.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmdMadridActionPerformed(evt);
-            }
-        });
-        jPanel6.add(cmdMadrid, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, -1, -1));
+        cmdDestino.add(radioButtonMadrid);
+        jPanel6.add(radioButtonMadrid, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, -1, -1));
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 3, 11)); // NOI18N
         jLabel11.setText("Madrid");
@@ -310,7 +270,7 @@ public class AgregarDestino extends javax.swing.JDialog {
 
         jPanel3.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 340, 140, 190));
 
-        jPanel13.setBorder(javax.swing.BorderFactory.createTitledBorder("Carros"));
+        jPanel13.setBorder(javax.swing.BorderFactory.createTitledBorder("Pasajeros"));
         jPanel13.setOpaque(false);
         jPanel13.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -319,11 +279,11 @@ public class AgregarDestino extends javax.swing.JDialog {
 
             },
             new String [] {
-                "No.", "Destino", "Cédula", "Nombre", "Apellido"
+                "No.", "Destino", "Cédula", "Nombre", "Apellido", "Origen", "Sexo"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+                false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -411,16 +371,18 @@ public class AgregarDestino extends javax.swing.JDialog {
 
     private void cmdGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdGuardarActionPerformed
 
-        String auxPasajero, cedula;
+        String auxPasajero, cedula,destino;
         int indice;
         Personas pasajeros;
         
-        if (!(cmdBarranquilla.isSelected() || cmdBogota.isSelected() || cmdMadrid.isSelected() || cmdMiami.isSelected()
-        || cmdNuevaYork.isSelected() || cmdParis.isSelected() || cmdRioDeJaneiro.isSelected() || cmdSanAndres.isSelected())){
+        if (!(radioButtonBarranquilla.isSelected() || radioButtonBogota.isSelected() || radioButtonMadrid.isSelected() || radioButtonMiami.isSelected()
+        || radioButtonNuevaYork.isSelected() || radioButtonParis.isSelected() || radioButtonRioDeJaneiro.isSelected() || radioButtonSanAndres.isSelected())){
             getToolkit().beep();
-            Helper.mensaje(this, "Digite su Destino", 3);    
+            Helper.mensaje(this, "Seleccione su Destino", 3);    
         }else{
-
+            
+        destino=Helper.destinoSeleccionado(radioButtonBarranquilla, radioButtonBogota, radioButtonMadrid, radioButtonMiami, radioButtonNuevaYork,
+        radioButtonParis, radioButtonRioDeJaneiro, radioButtonSanAndres);
         auxPasajero = cmbPasajeros.getSelectedItem().toString();
         indice = auxPasajero.indexOf("-") - 1;
         cedula = auxPasajero.substring(0, indice);
@@ -504,39 +466,6 @@ public class AgregarDestino extends javax.swing.JDialog {
         Helper.deshabilitarBotones(botonesD);
         }
     }//GEN-LAST:event_cmdBuscarActionPerformed
-
-    private void cmdMadridActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdMadridActionPerformed
-        destino="Madrid";
-    }//GEN-LAST:event_cmdMadridActionPerformed
-
-    private void cmdRioDeJaneiroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdRioDeJaneiroActionPerformed
-        destino="Rio De Janeiro";
-    }//GEN-LAST:event_cmdRioDeJaneiroActionPerformed
-
-    private void cmdBogotaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdBogotaActionPerformed
-
-        destino="Bogota";
-    }//GEN-LAST:event_cmdBogotaActionPerformed
-
-    private void cmdMiamiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdMiamiActionPerformed
-        destino="Miami";
-    }//GEN-LAST:event_cmdMiamiActionPerformed
-
-    private void cmdParisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdParisActionPerformed
-        destino="Paris";
-    }//GEN-LAST:event_cmdParisActionPerformed
-
-    private void cmdSanAndresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdSanAndresActionPerformed
-        destino="San Andres";
-    }//GEN-LAST:event_cmdSanAndresActionPerformed
-
-    private void cmdBarranquillaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdBarranquillaActionPerformed
-        destino="Barranquilla";
-    }//GEN-LAST:event_cmdBarranquillaActionPerformed
-
-    private void cmdNuevaYorkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdNuevaYorkActionPerformed
-        destino="Nueva York";
-    }//GEN-LAST:event_cmdNuevaYorkActionPerformed
 
     private void cmdEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdEliminarActionPerformed
     int i, op;
@@ -638,19 +567,11 @@ public class AgregarDestino extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox cmbPasajeros;
-    private javax.swing.JRadioButton cmdBarranquilla;
-    private javax.swing.JRadioButton cmdBogota;
     private javax.swing.JButton cmdBuscar;
     private javax.swing.JButton cmdCancelar;
     public static javax.swing.ButtonGroup cmdDestino;
     private javax.swing.JButton cmdEliminar;
     private javax.swing.JButton cmdGuardar;
-    private javax.swing.JRadioButton cmdMadrid;
-    private javax.swing.JRadioButton cmdMiami;
-    private javax.swing.JRadioButton cmdNuevaYork;
-    private javax.swing.JRadioButton cmdParis;
-    private javax.swing.JRadioButton cmdRioDeJaneiro;
-    private javax.swing.JRadioButton cmdSanAndres;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -683,6 +604,14 @@ public class AgregarDestino extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JRadioButton radioButtonBarranquilla;
+    private javax.swing.JRadioButton radioButtonBogota;
+    private javax.swing.JRadioButton radioButtonMadrid;
+    private javax.swing.JRadioButton radioButtonMiami;
+    private javax.swing.JRadioButton radioButtonNuevaYork;
+    private javax.swing.JRadioButton radioButtonParis;
+    private javax.swing.JRadioButton radioButtonRioDeJaneiro;
+    private javax.swing.JRadioButton radioButtonSanAndres;
     private javax.swing.JTable tblDestinos;
     private javax.swing.JTextField txtCedula;
     // End of variables declaration//GEN-END:variables

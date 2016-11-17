@@ -16,6 +16,7 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
+import javax.swing.JRadioButton;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
@@ -293,6 +294,7 @@ public class Helper {
            tabla.setValueAt(personas.get(i).getNombre(), i, 2);
            tabla.setValueAt(personas.get(i).getApellido(), i, 3);
            tabla.setValueAt(personas.get(i).getOrigen(), i, 4);
+           tabla.setValueAt(personas.get(i).getSexo(), i, 5);
           
         }
     }
@@ -380,6 +382,8 @@ public class Helper {
             tabla.setValueAt(destinos.get(i).getPasajero().getCedula(), i, 2);
             tabla.setValueAt(destinos.get(i).getPasajero().getNombre(), i, 3);
             tabla.setValueAt(destinos.get(i).getPasajero().getApellido(), i, 4);
+            tabla.setValueAt(destinos.get(i).getPasajero().getOrigen(), i, 5);
+            tabla.setValueAt(destinos.get(i).getPasajero().getSexo(), i, 6);
         }
     }
     
@@ -492,6 +496,17 @@ public static boolean buscarPersonaCedula(String cedula, String ruta) {
         }
     } 
     
+    public static void llenarComboCedula(JComboBox combo, String ruta){
+        ArrayList<Destino> destinos = traerDatos(ruta);
+        DefaultComboBoxModel dcbm =(DefaultComboBoxModel) combo.getModel();
+        dcbm.removeAllElements();
+        Destino d;
+        for (int i = 0; i < destinos.size(); i++) {
+            d = destinos.get(i);
+           dcbm.addElement(d.getPasajero().getCedula());
+        }
+    }
+    
     public static boolean buscarDestino(String cedula, String ruta) {
         ArrayList<Destino> destinos = traerDatos(ruta);
         for (int i = 0; i < destinos.size(); i++) {
@@ -513,6 +528,34 @@ public static boolean buscarPersonaCedula(String cedula, String ruta) {
          return null;
     }
     
+   public static String destinoSeleccionado(JRadioButton boton1,JRadioButton boton2,JRadioButton boton3,JRadioButton boton4,JRadioButton boton5,
+           JRadioButton boton6,JRadioButton boton7,JRadioButton boton8){
+    String destino="";
+    if(boton1.isSelected()){
+    destino="Barranquilla";
+    }else if(boton2.isSelected()){
+    destino="Bogota";
+    }else if(boton3.isSelected()){
+    destino="Madrid";
+    }else if(boton4.isSelected()){
+    destino="Miami";
+    }else if(boton5.isSelected()){
+    destino="Nueva York";
+    }else if(boton6.isSelected()){
+    destino="Paris";
+    }else if(boton7.isSelected()){
+    destino="Rio de Janeiro";
+    }else if(boton8.isSelected()){
+    destino="San Andres";
+    }
+    
+       
+       
+       
+       return destino;
+       
+       
+   }
    
 }
     
