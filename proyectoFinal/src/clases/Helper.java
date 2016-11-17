@@ -25,7 +25,8 @@ import javax.swing.table.DefaultTableModel;
  * @author walbonis1
  */
 public class Helper {
-  public static void mensaje(Component ventana, String mensaje, int tipo) {
+
+    public static void mensaje(Component ventana, String mensaje, int tipo) {
         switch (tipo) {
             case 1:
                 JOptionPane.showMessageDialog(ventana, mensaje, "Información", JOptionPane.INFORMATION_MESSAGE);
@@ -179,9 +180,9 @@ public class Helper {
         return aux;
 
     }
-    
-     public static String recorridoHaciaArriba(int[][] m, int j, int in, int fin) {
-      
+
+    public static String recorridoHaciaArriba(int[][] m, int j, int in, int fin) {
+
         String aux = "";
         for (int i = in; i >= fin; i--) {
             aux = aux + m[i][j] + ", ";
@@ -199,9 +200,9 @@ public class Helper {
         return aux;
 
     }
-    
-     public static String recorridoHaciaAbajo(int[][] m, int j, int in, int fin) {
-      
+
+    public static String recorridoHaciaAbajo(int[][] m, int j, int in, int fin) {
+
         String aux = "";
         for (int i = in; i < fin; i++) {
             aux = aux + m[i][j] + ", ";
@@ -221,29 +222,30 @@ public class Helper {
                 aux = aux + Helper.recorridoHaciaAbajo(m, j);
             }
         }
-        aux = aux.substring(0, aux.length()-2)+".";
+        aux = aux.substring(0, aux.length() - 2) + ".";
         return aux;
     }
-    
+
     public static String recorridoHaciaIzquierda(int[][] m, int i) {
         int nc = m[0].length;
         String aux = "";
-        for (int j = nc-1; j >= 0; j--) {
+        for (int j = nc - 1; j >= 0; j--) {
             aux = aux + m[i][j] + ", ";
         }
         return aux;
 
     }
-    
-     public static String recorridoHaciaIzquierda(int[][] m, int i, int in, int fin) {
-        
+
+    public static String recorridoHaciaIzquierda(int[][] m, int i, int in, int fin) {
+
         String aux = "";
-        for (int j =in; j >= fin; j--) {
+        for (int j = in; j >= fin; j--) {
             aux = aux + m[i][j] + ", ";
         }
         return aux;
 
     }
+
     public static String recorridoHaciaDerecha(int[][] m, int i) {
         int nc = m[0].length;
         String aux = "";
@@ -253,9 +255,9 @@ public class Helper {
         return aux;
 
     }
-    
-    public static String recorridoHaciaDerecha(int[][] m, int i,int in, int fin) {
-       
+
+    public static String recorridoHaciaDerecha(int[][] m, int i, int in, int fin) {
+
         String aux = "";
         for (int j = in; j < fin; j++) {
             aux = aux + m[i][j] + ", ";
@@ -263,77 +265,78 @@ public class Helper {
         return aux;
 
     }
-    
-    public static String recorridoDos(JTable tabla1){
+
+    public static String recorridoDos(JTable tabla1) {
         int m[][] = pasoDeDatos(tabla1);
         int nf = m.length;
-        String aux="";
+        String aux = "";
         for (int i = 0; i < nf; i++) {
-            if(i%2==0){
-                aux=aux+ recorridoHaciaIzquierda(m, i);
-            }else{
-                aux=aux+recorridoHaciaDerecha(m, i);
+            if (i % 2 == 0) {
+                aux = aux + recorridoHaciaIzquierda(m, i);
+            } else {
+                aux = aux + recorridoHaciaDerecha(m, i);
             }
-            
+
         }
-        aux = aux.substring(0, aux.length()-2)+".";
+        aux = aux.substring(0, aux.length() - 2) + ".";
         return aux;
     }
-    
-    public static void llenarTabla(JTable tabla, String ruta){
+
+    public static void llenarTabla(JTable tabla, String ruta) {
         DefaultTableModel tm;
         int nf;
         ArrayList<Personas> personas = traerDatos(ruta);
-        tm = (DefaultTableModel)tabla.getModel();
+        tm = (DefaultTableModel) tabla.getModel();
         limpiadoTabla(tabla);
         nf = personas.size();
         tm.setRowCount(nf);
         for (int i = 0; i < nf; i++) {
-           tabla.setValueAt(i+1, i, 0);
-           tabla.setValueAt(personas.get(i).getCedula(), i, 1);
-           tabla.setValueAt(personas.get(i).getNombre(), i, 2);
-           tabla.setValueAt(personas.get(i).getApellido(), i, 3);
-           tabla.setValueAt(personas.get(i).getOrigen(), i, 4);
-           tabla.setValueAt(personas.get(i).getSexo(), i, 5);
-          
+            tabla.setValueAt(i + 1, i, 0);
+            tabla.setValueAt(personas.get(i).getCedula(), i, 1);
+            tabla.setValueAt(personas.get(i).getNombre(), i, 2);
+            tabla.setValueAt(personas.get(i).getApellido(), i, 3);
+            tabla.setValueAt(personas.get(i).getOrigen(), i, 4);
+            tabla.setValueAt(personas.get(i).getSexo(), i, 5);
+
         }
     }
-    
-     public static void llenarTablaDestinos(JTable tabla, String ruta){
+
+    public static void llenarTablaDestinos(JTable tabla, String ruta) {
         DefaultTableModel tm;
         int nf;
         ArrayList<Destino> destinos = traerDatos(ruta);
-        tm = (DefaultTableModel)tabla.getModel();
+        tm = (DefaultTableModel) tabla.getModel();
         limpiadoTabla(tabla);
         nf = destinos.size();
         tm.setRowCount(nf);
         for (int i = 0; i < nf; i++) {
-           tabla.setValueAt(i+1, i, 0);
-           tabla.setValueAt(destinos.get(i).getPasajero().getCedula(), i, 1);
-           tabla.setValueAt(destinos.get(i).getPasajero().getNombre(), i, 2);
-           tabla.setValueAt(destinos.get(i).getPasajero().getApellido(), i, 3);
-           tabla.setValueAt(destinos.get(i).getPasajero().getOrigen(), i, 4);
-          
+            tabla.setValueAt(i + 1, i, 0);
+            tabla.setValueAt(destinos.get(i).getPasajero().getCedula(), i, 1);
+            tabla.setValueAt(destinos.get(i).getPasajero().getNombre(), i, 2);
+            tabla.setValueAt(destinos.get(i).getPasajero().getApellido(), i, 3);
+            tabla.setValueAt(destinos.get(i).getPasajero().getOrigen(), i, 4);
+
         }
     }
-    public static void llenarTablaListado(JTable tabla, String ruta){
+
+    public static void llenarTablaListado(JTable tabla, String ruta) {
         DefaultTableModel tm;
         int nf;
         ArrayList<Destino> destinos = traerDatos(ruta);
-        tm = (DefaultTableModel)tabla.getModel();
+        tm = (DefaultTableModel) tabla.getModel();
         limpiadoTabla(tabla);
         nf = destinos.size();
         tm.setRowCount(nf);
         for (int i = 0; i < nf; i++) {
-           tabla.setValueAt(i+1, i, 0);
-           tabla.setValueAt(destinos.get(i).getPasajero().getCedula(), i, 1);
-           tabla.setValueAt(destinos.get(i).getPasajero().getNombre(), i, 2);
-           tabla.setValueAt(destinos.get(i).getPasajero().getApellido(), i, 3);
-           tabla.setValueAt(destinos.get(i).getPasajero().getOrigen(), i, 4);
-           tabla.setValueAt(destinos.get(i).getDestino(), i, 5);
+            tabla.setValueAt(i + 1, i, 0);
+            tabla.setValueAt(destinos.get(i).getPasajero().getCedula(), i, 1);
+            tabla.setValueAt(destinos.get(i).getPasajero().getNombre(), i, 2);
+            tabla.setValueAt(destinos.get(i).getPasajero().getApellido(), i, 3);
+            tabla.setValueAt(destinos.get(i).getPasajero().getOrigen(), i, 4);
+            tabla.setValueAt(destinos.get(i).getDestino(), i, 5);
         }
     }
-    
+
     public static void llenarTabla(JTable tabla, ArrayList<Personas> personas) {
         DefaultTableModel tm;
         int nf;
@@ -344,13 +347,13 @@ public class Helper {
         for (int i = 0; i < nf; i++) {
             tabla.setValueAt(i + 1, i, 0);
             tabla.setValueAt(personas.get(i).getCedula(), i, 1);
-           tabla.setValueAt(personas.get(i).getNombre(), i, 2);
-           tabla.setValueAt(personas.get(i).getApellido(), i, 3);
-           tabla.setValueAt(personas.get(i).getOrigen(), i, 4);
-           
+            tabla.setValueAt(personas.get(i).getNombre(), i, 2);
+            tabla.setValueAt(personas.get(i).getApellido(), i, 3);
+            tabla.setValueAt(personas.get(i).getOrigen(), i, 4);
+
         }
     }
-    
+
     public static void llenarTablaOrigen(JTable tabla, ArrayList<Destino> destinos) {
         DefaultTableModel tm;
         int nf;
@@ -359,15 +362,33 @@ public class Helper {
         nf = destinos.size();
         tm.setRowCount(nf);
         for (int i = 0; i < nf; i++) {
-            tabla.setValueAt(i+1, i, 0);
+            tabla.setValueAt(i + 1, i, 0);
             tabla.setValueAt(destinos.get(i).getPasajero().getCedula(), i, 1);
-           tabla.setValueAt(destinos.get(i).getPasajero().getNombre(), i, 2);
-           tabla.setValueAt(destinos.get(i).getPasajero().getApellido(), i, 3);
-           tabla.setValueAt(destinos.get(i).getPasajero().getOrigen(), i, 4);
-           tabla.setValueAt(destinos.get(i).getDestino(), i, 5);
+            tabla.setValueAt(destinos.get(i).getPasajero().getNombre(), i, 2);
+            tabla.setValueAt(destinos.get(i).getPasajero().getApellido(), i, 3);
+            tabla.setValueAt(destinos.get(i).getPasajero().getOrigen(), i, 4);
+            tabla.setValueAt(destinos.get(i).getDestino(), i, 5);
         }
     }
-    
+
+    public static void llenarTablaSexo(JTable tabla, ArrayList<Destino> destinos) {
+        DefaultTableModel tm;
+        int nf;
+        tm = (DefaultTableModel) tabla.getModel();
+        limpiadoTabla(tabla);
+        nf = destinos.size();
+        tm.setRowCount(nf);
+        for (int i = 0; i < nf; i++) {
+            tabla.setValueAt(i + 1, i, 0);
+            tabla.setValueAt(destinos.get(i).getPasajero().getCedula(), i, 1);
+            tabla.setValueAt(destinos.get(i).getPasajero().getNombre(), i, 2);
+            tabla.setValueAt(destinos.get(i).getPasajero().getApellido(), i, 3);
+            tabla.setValueAt(destinos.get(i).getPasajero().getOrigen(), i, 4);
+            tabla.setValueAt(destinos.get(i).getDestino(), i, 5);
+            tabla.setValueAt(destinos.get(i).getPasajero().getSexo(), i, 6);
+        }
+    }
+
     public static void llenarTablaDestino(JTable tabla, String ruta) {
         DefaultTableModel tm;
         int nf;
@@ -386,37 +407,35 @@ public class Helper {
             tabla.setValueAt(destinos.get(i).getPasajero().getSexo(), i, 6);
         }
     }
-    
-    public static void llenarTablaPasajeros(JTable tabla, String ruta) {
+
+    public static void llenarTablaMotivo(JTable tabla, String ruta) {
         DefaultTableModel tm;
         int nf;
-        ArrayList<Edad> edades = traerDatos(ruta);
+        ArrayList<Motivo> motivos = traerDatos(ruta);
         tm = (DefaultTableModel) tabla.getModel();
         limpiadoTabla(tabla);
-        nf = edades.size();
+        nf = motivos.size();
         tm.setRowCount(nf);
         for (int i = 0; i < nf; i++) {
             tabla.setValueAt(i + 1, i, 0);
-            tabla.setValueAt(edades.get(i).getCedula(), i, 1);
-            tabla.setValueAt(edades.get(i).getNombre(), i, 2);
-            tabla.setValueAt(edades.get(i).getApellido(), i, 3);
-            tabla.setValueAt(edades.get(i).getSexo(), i, 4);
-            tabla.setValueAt(edades.get(i).getEdad(), i, 5);
-          
-            
+            tabla.setValueAt(motivos.get(i).getPasajero().getCedula(), i, 1);
+            tabla.setValueAt(motivos.get(i).getPasajero().getNombre(), i, 2);
+            tabla.setValueAt(motivos.get(i).getPasajero().getApellido(), i, 3);
+            tabla.setValueAt(motivos.get(i).getMotivo(), i, 4);
+
         }
     }
-    
-    public static ArrayList traerDatos(String ruta){
+
+    public static ArrayList traerDatos(String ruta) {
         FileInputStream archivo;
         ObjectInputStream entrada;
         ArrayList personas = new ArrayList();
         Object p;
-        
+
         try {
             archivo = new FileInputStream(ruta);
             entrada = new ObjectInputStream(archivo);
-            while((p=entrada.readObject())!=null){
+            while ((p = entrada.readObject()) != null) {
                 personas.add(p);
             }
         } catch (FileNotFoundException ex) {
@@ -424,22 +443,23 @@ public class Helper {
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
         } catch (ClassNotFoundException ex) {
-             System.out.println(ex.getMessage());
+            System.out.println(ex.getMessage());
         }
-           return personas;
-    } 
-    
-    public static void volcado(ObjectOutputStream salida,ArrayList personas ){
+        return personas;
+    }
+
+    public static void volcado(ObjectOutputStream salida, ArrayList personas) {
         for (int i = 0; i < personas.size(); i++) {
             try {
                 salida.writeObject(personas.get(i));
             } catch (IOException ex) {
                 System.out.println(ex.getMessage());
             }
-            
+
         }
     }
-public static boolean buscarPersonaCedula(String cedula, String ruta) {
+
+    public static boolean buscarPersonaCedula(String cedula, String ruta) {
         ArrayList<Personas> personas = traerDatos(ruta);
         for (int i = 0; i < personas.size(); i++) {
             if (personas.get(i).getCedula().equals(cedula)) {
@@ -447,50 +467,61 @@ public static boolean buscarPersonaCedula(String cedula, String ruta) {
             }
         }
         return false;
-   }
-    
-    public static Personas traerPersonaCedula(String cedula, String ruta){
-         ArrayList<Personas> personas = traerDatos(ruta);
-         for (int i = 0; i < personas.size(); i++) {
+    }
+
+    public static Personas traerPersonaCedula(String cedula, String ruta) {
+        ArrayList<Personas> personas = traerDatos(ruta);
+        for (int i = 0; i < personas.size(); i++) {
             if (personas.get(i).getCedula().equals(cedula)) {
                 return personas.get(i);
             }
-            
+
         }
-         return null;
+        return null;
     }
-    
-    public static ArrayList<Personas> modificarPersona(String ruta, String cedula,String nombre, String apellido,String origen){
-         ArrayList<Personas> personas = traerDatos(ruta);
-         for (int i = 0; i < personas.size(); i++) {
-            if(personas.get(i).getCedula().equals(cedula)){
+
+    public static ArrayList<Personas> modificarPersona(String ruta, String cedula, String nombre, String apellido, String origen) {
+        ArrayList<Personas> personas = traerDatos(ruta);
+        for (int i = 0; i < personas.size(); i++) {
+            if (personas.get(i).getCedula().equals(cedula)) {
                 personas.get(i).setNombre(nombre);
                 personas.get(i).setApellido(apellido);
                 personas.get(i).setOrigen(origen);
-                
-              
-                
+
                 return personas;
             }
-         
+
         }
-         return null;
-    } 
-    
-    public static ArrayList<Destino> modificarDestino(String ruta, String cedula,String destino,Personas propietario){
-         ArrayList<Destino> destinos = traerDatos(ruta);
-         for (int i = 0; i < destinos.size(); i++) {
-            if(destinos.get(i).getPasajero().getCedula().equals(cedula)){
+        return null;
+    }
+
+    public static ArrayList<Destino> modificarDestino(String ruta, String cedula, String destino, Personas propietario) {
+        ArrayList<Destino> destinos = traerDatos(ruta);
+        for (int i = 0; i < destinos.size(); i++) {
+            if (destinos.get(i).getPasajero().getCedula().equals(cedula)) {
                 destinos.get(i).setDestino(destino);
                 destinos.get(i).setPasajero(propietario);
-               
-                
+
                 return destinos;
             }
-         
+
         }
-         return null;
-    } 
+        return null;
+    }
+
+    public static ArrayList<Motivo> modificarMotivo(String ruta, String cedula, String motivo, Personas pasajero) {
+        ArrayList<Motivo> motivos = traerDatos(ruta);
+        for (int i = 0; i < motivos.size(); i++) {
+            if (motivos.get(i).getPasajero().getCedula().equals(cedula)) {
+                motivos.get(i).setDestino(motivo);
+                motivos.get(i).setPasajero(pasajero);
+
+                return motivos;
+            }
+
+        }
+        return null;
+    }
 
     public static void listadoPorOrigen(JTable tabla, String ruta, String origen) {
         ArrayList<Destino> destinos = traerDatos(ruta);
@@ -504,29 +535,42 @@ public static boolean buscarPersonaCedula(String cedula, String ruta) {
         llenarTablaOrigen(tabla, DestinopersonasFiltradas);
 
     }
-    
-    public static void llenarComboPersonas(JComboBox combo, String ruta){
+
+    public static void listadoPorSexo(JTable tabla, String ruta, String sexo) {
+        ArrayList<Destino> destinos = traerDatos(ruta);
+        ArrayList<Destino> personasFiltradas = new ArrayList();
+        for (int i = 0; i < destinos.size(); i++) {
+            if (destinos.get(i).getPasajero().getSexo().equalsIgnoreCase(sexo)) {
+                personasFiltradas.add(destinos.get(i));
+            }
+
+        }
+        llenarTablaSexo(tabla, personasFiltradas);
+
+    }
+
+    public static void llenarComboPersonas(JComboBox combo, String ruta) {
         ArrayList<Personas> personas = traerDatos(ruta);
-        DefaultComboBoxModel dcbm =(DefaultComboBoxModel) combo.getModel();
+        DefaultComboBoxModel dcbm = (DefaultComboBoxModel) combo.getModel();
         dcbm.removeAllElements();
         Personas p;
         for (int i = 0; i < personas.size(); i++) {
             p = personas.get(i);
-           dcbm.addElement(p.getCedula()+" - "+p.getNombre()+" "+p.getApellido());
+            dcbm.addElement(p.getCedula() + " - " + p.getNombre() + " " + p.getApellido());
         }
-    } 
-    
-    public static void llenarComboCedula(JComboBox combo, String ruta){
+    }
+
+    public static void llenarComboCedula(JComboBox combo, String ruta) {
         ArrayList<Destino> destinos = traerDatos(ruta);
-        DefaultComboBoxModel dcbm =(DefaultComboBoxModel) combo.getModel();
+        DefaultComboBoxModel dcbm = (DefaultComboBoxModel) combo.getModel();
         dcbm.removeAllElements();
         Destino d;
         for (int i = 0; i < destinos.size(); i++) {
             d = destinos.get(i);
-           dcbm.addElement(d.getPasajero().getCedula());
+            dcbm.addElement(d.getPasajero().getCedula());
         }
     }
-    
+
     public static boolean buscarDestino(String cedula, String ruta) {
         ArrayList<Destino> destinos = traerDatos(ruta);
         for (int i = 0; i < destinos.size(); i++) {
@@ -535,48 +579,101 @@ public static boolean buscarPersonaCedula(String cedula, String ruta) {
             }
         }
         return false;
-   }
-    
-    public static Destino traerDestino(String cedula, String ruta){
-         ArrayList<Destino> destinos = traerDatos(ruta);
-         for (int i = 0; i < destinos.size(); i++) {
+    }
+
+    public static boolean buscarMotivo(String cedula, String ruta) {
+        ArrayList<Motivo> motivos = traerDatos(ruta);
+        for (int i = 0; i < motivos.size(); i++) {
+            if (motivos.get(i).getPasajero().getCedula().equals(cedula)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static Destino traerDestino(String cedula, String ruta) {
+        ArrayList<Destino> destinos = traerDatos(ruta);
+        for (int i = 0; i < destinos.size(); i++) {
             if (destinos.get(i).getPasajero().getCedula().equals(cedula)) {
                 return destinos.get(i);
             }
-            
+
         }
-         return null;
+        return null;
     }
-    
-   public static String destinoSeleccionado(JRadioButton boton1,JRadioButton boton2,JRadioButton boton3,JRadioButton boton4,JRadioButton boton5,
-           JRadioButton boton6,JRadioButton boton7,JRadioButton boton8){
-    String destino="";
-    if(boton1.isSelected()){
-    destino="Barranquilla";
-    }else if(boton2.isSelected()){
-    destino="Bogota";
-    }else if(boton3.isSelected()){
-    destino="Madrid";
-    }else if(boton4.isSelected()){
-    destino="Miami";
-    }else if(boton5.isSelected()){
-    destino="Nueva York";
-    }else if(boton6.isSelected()){
-    destino="Paris";
-    }else if(boton7.isSelected()){
-    destino="Rio de Janeiro";
-    }else if(boton8.isSelected()){
-    destino="San Andres";
+
+    public static Destino traerMotivo(String cedula, String ruta) {
+        ArrayList<Motivo> motivos = traerDatos(ruta);
+        for (int i = 0; i < motivos.size(); i++) {
+            if (motivos.get(i).getPasajero().getCedula().equals(cedula)) {
+                return motivos.get(i);
+            }
+
+        }
+        return null;
     }
-    
-       
-       
-       
-       return destino;
-       
-       
-   }
-   
+
+    public static boolean buscarPersonaCedulaM(String cedula, String ruta) {
+        ArrayList<Motivo> motivos = traerDatos(ruta);
+        for (int i = 0; i < motivos.size(); i++) {
+            if (motivos.get(i).getPasajero().getCedula().equals(cedula)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static Motivo traerPersonaCedulaM(String cedula, String ruta) {
+        ArrayList<Motivo> motivos = traerDatos(ruta);
+        for (int i = 0; i < motivos.size(); i++) {
+            if (motivos.get(i).getPasajero().getCedula().equals(cedula)) {
+                return motivos.get(i);
+            }
+
+        }
+        return null;
+    }
+
+    public static String destinoSeleccionado(JRadioButton boton1, JRadioButton boton2, JRadioButton boton3, JRadioButton boton4, JRadioButton boton5,
+            JRadioButton boton6, JRadioButton boton7, JRadioButton boton8) {
+        String destino = "";
+        if (boton1.isSelected()) {
+            destino = "Barranquilla";
+        } else if (boton2.isSelected()) {
+            destino = "Bogota";
+        } else if (boton3.isSelected()) {
+            destino = "Madrid";
+        } else if (boton4.isSelected()) {
+            destino = "Miami";
+        } else if (boton5.isSelected()) {
+            destino = "Nueva York";
+        } else if (boton6.isSelected()) {
+            destino = "Paris";
+        } else if (boton7.isSelected()) {
+            destino = "Rio de Janeiro";
+        } else if (boton8.isSelected()) {
+            destino = "San Andres";
+        }
+
+        return destino;
+
+    }
+
+    public static String motivoSeleccionado(JRadioButton boton1, JRadioButton boton2, JRadioButton boton3, JRadioButton boton4, JRadioButton boton5) {
+        String motivo = "";
+        if (boton1.isSelected()) {
+            motivo = "Negocios";
+        } else if (boton2.isSelected()) {
+            motivo = "Otro";
+        } else if (boton3.isSelected()) {
+            motivo = "Educacion";
+        } else if (boton4.isSelected()) {
+            motivo = "Familiar";
+        } else if (boton5.isSelected()) {
+            motivo = "Turismo";
+        }
+
+        return motivo;
+
+    }
 }
-    
-   

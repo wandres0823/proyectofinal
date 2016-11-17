@@ -39,6 +39,7 @@ public class Aerolinea extends javax.swing.JFrame {
         MnListados = new javax.swing.JMenu();
         MnListadoCompleto = new javax.swing.JMenuItem();
         MnListadoPorOrigen = new javax.swing.JMenuItem();
+        MnListadoPorSexo = new javax.swing.JMenuItem();
         MnCantidades = new javax.swing.JMenu();
         MnNoPasajeros = new javax.swing.JMenuItem();
         jSeparator2 = new javax.swing.JPopupMenu.Separator();
@@ -50,6 +51,7 @@ public class Aerolinea extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Aerolinea All Star");
+        setUndecorated(true);
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -83,6 +85,15 @@ public class Aerolinea extends javax.swing.JFrame {
             }
         });
         MnListados.add(MnListadoPorOrigen);
+
+        MnListadoPorSexo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/1479433225_Sex.png"))); // NOI18N
+        MnListadoPorSexo.setText("Listado Por Sexo");
+        MnListadoPorSexo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MnListadoPorSexoActionPerformed(evt);
+            }
+        });
+        MnListados.add(MnListadoPorSexo);
 
         MnReportes.add(MnListados);
 
@@ -155,7 +166,7 @@ public class Aerolinea extends javax.swing.JFrame {
             .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
-        setSize(new java.awt.Dimension(786, 479));
+        setSize(new java.awt.Dimension(770, 440));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -188,6 +199,11 @@ public class Aerolinea extends javax.swing.JFrame {
     AgregarDestino ad = new AgregarDestino(this,true);
         ad.setVisible(true); 
     }//GEN-LAST:event_MnAgregarDestinoActionPerformed
+
+    private void MnListadoPorSexoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnListadoPorSexoActionPerformed
+    ListadoPorSexo lps = new ListadoPorSexo(this,true);
+    lps.setVisible(true);
+    }//GEN-LAST:event_MnListadoPorSexoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -237,6 +253,7 @@ public class Aerolinea extends javax.swing.JFrame {
     private javax.swing.JMenu MnDestino;
     private javax.swing.JMenuItem MnListadoCompleto;
     private javax.swing.JMenuItem MnListadoPorOrigen;
+    private javax.swing.JMenuItem MnListadoPorSexo;
     private javax.swing.JMenu MnListados;
     private javax.swing.JMenuItem MnNoPasajeros;
     private javax.swing.JMenu MnPasajeros;

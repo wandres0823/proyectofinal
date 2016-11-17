@@ -16,6 +16,7 @@ public class Destino implements java.io.Serializable{
  private String destino;
  private Personas pasajero;
 
+
     public Destino(String destino, Personas pasajero) {
         this.destino = destino;
         this.pasajero = pasajero;
