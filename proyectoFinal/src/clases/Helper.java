@@ -387,6 +387,26 @@ public class Helper {
         }
     }
     
+    public static void llenarTablaPasajeros(JTable tabla, String ruta) {
+        DefaultTableModel tm;
+        int nf;
+        ArrayList<Edad> edades = traerDatos(ruta);
+        tm = (DefaultTableModel) tabla.getModel();
+        limpiadoTabla(tabla);
+        nf = edades.size();
+        tm.setRowCount(nf);
+        for (int i = 0; i < nf; i++) {
+            tabla.setValueAt(i + 1, i, 0);
+            tabla.setValueAt(edades.get(i).getCedula(), i, 1);
+            tabla.setValueAt(edades.get(i).getNombre(), i, 2);
+            tabla.setValueAt(edades.get(i).getApellido(), i, 3);
+            tabla.setValueAt(edades.get(i).getSexo(), i, 4);
+            tabla.setValueAt(edades.get(i).getEdad(), i, 5);
+          
+            
+        }
+    }
+    
     public static ArrayList traerDatos(String ruta){
         FileInputStream archivo;
         ObjectInputStream entrada;
