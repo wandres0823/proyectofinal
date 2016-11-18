@@ -12,12 +12,11 @@ import java.io.ObjectOutputStream;
  *
  * @author karrieta9
  */
-public class Motivo extends Personas{
+public class Motivo implements java.io.Serializable{
  private String motivo;
 
-    public Motivo(String cedula, String nombre, String apellido, String origen,String sexo,String motivo) {
-       super(cedula,nombre,apellido,origen,sexo);
-        this.motivo = motivo;
+    public Motivo(String motivo) {
+ this.motivo = motivo;
     }
 
     public String getMotivo() {

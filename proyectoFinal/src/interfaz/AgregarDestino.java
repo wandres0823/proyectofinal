@@ -69,6 +69,10 @@ public class AgregarDestino extends javax.swing.JDialog {
         jLabel8 = new javax.swing.JLabel();
         radioButtonRioDeJaneiro = new javax.swing.JRadioButton();
         jLabel9 = new javax.swing.JLabel();
+        jPanel14 = new javax.swing.JPanel();
+        jLabel21 = new javax.swing.JLabel();
+        radioButtonNuevaYork1 = new javax.swing.JRadioButton();
+        jLabel22 = new javax.swing.JLabel();
         jPanel8 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         radioButtonMiami = new javax.swing.JRadioButton();
@@ -87,7 +91,7 @@ public class AgregarDestino extends javax.swing.JDialog {
         jLabel17 = new javax.swing.JLabel();
         jPanel12 = new javax.swing.JPanel();
         jLabel18 = new javax.swing.JLabel();
-        radioButtonNuevaYork = new javax.swing.JRadioButton();
+        radioButtonCali = new javax.swing.JRadioButton();
         jLabel19 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
@@ -105,11 +109,20 @@ public class AgregarDestino extends javax.swing.JDialog {
         jPanel13 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblDestinos = new javax.swing.JTable();
+        jLabel13 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         cmdBuscar = new javax.swing.JButton();
         cmdGuardar = new javax.swing.JButton();
         cmdCancelar = new javax.swing.JButton();
         cmdEliminar = new javax.swing.JButton();
+        jPanel15 = new javax.swing.JPanel();
+        jLabel23 = new javax.swing.JLabel();
+        radioButtonNuevaYork = new javax.swing.JRadioButton();
+        jLabel24 = new javax.swing.JLabel();
+        jPanel16 = new javax.swing.JPanel();
+        jLabel25 = new javax.swing.JLabel();
+        radioButtonCartagena = new javax.swing.JRadioButton();
+        jLabel26 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -128,10 +141,27 @@ public class AgregarDestino extends javax.swing.JDialog {
         jPanel5.add(radioButtonRioDeJaneiro, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, -1, -1));
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 3, 11)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Rio De Janeiro");
         jPanel5.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 90, -1));
 
-        jPanel3.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 340, 140, 190));
+        jPanel14.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jPanel14.setOpaque(false);
+        jPanel14.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/NYC.jpg"))); // NOI18N
+        jPanel14.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 120, 120));
+
+        cmdDestino.add(radioButtonNuevaYork1);
+        jPanel14.add(radioButtonNuevaYork1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, -1, -1));
+
+        jLabel22.setFont(new java.awt.Font("Tahoma", 3, 11)); // NOI18N
+        jLabel22.setText("Nueva York");
+        jPanel14.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, 70, -1));
+
+        jPanel5.add(jPanel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 160, 140, 190));
+
+        jPanel3.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 370, 140, 190));
 
         jPanel8.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel8.setOpaque(false);
@@ -144,10 +174,11 @@ public class AgregarDestino extends javax.swing.JDialog {
         jPanel8.add(radioButtonMiami, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 3, 11)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Miami");
         jPanel8.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, 40, -1));
 
-        jPanel3.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 340, 140, 190));
+        jPanel3.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 370, 140, 190));
 
         jPanel9.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel9.setOpaque(false);
@@ -160,10 +191,11 @@ public class AgregarDestino extends javax.swing.JDialog {
         jPanel9.add(radioButtonParis, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, -1, -1));
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 3, 11)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setText("Paris");
         jPanel9.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, 40, -1));
 
-        jPanel3.add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 340, 140, 190));
+        jPanel3.add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 370, 140, 190));
 
         jPanel10.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel10.setOpaque(false);
@@ -176,10 +208,11 @@ public class AgregarDestino extends javax.swing.JDialog {
         jPanel10.add(radioButtonSanAndres, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, -1, -1));
 
         jLabel15.setFont(new java.awt.Font("Tahoma", 3, 11)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(255, 255, 255));
         jLabel15.setText("San Andres");
         jPanel10.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 80, -1));
 
-        jPanel3.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 130, 140, 190));
+        jPanel3.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 160, 140, 190));
 
         jPanel11.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel11.setOpaque(false);
@@ -192,26 +225,28 @@ public class AgregarDestino extends javax.swing.JDialog {
         jPanel11.add(radioButtonBarranquilla, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, -1, -1));
 
         jLabel17.setFont(new java.awt.Font("Tahoma", 3, 11)); // NOI18N
+        jLabel17.setForeground(new java.awt.Color(255, 255, 255));
         jLabel17.setText("Barranquilla");
         jPanel11.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 70, -1));
 
-        jPanel3.add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 130, 140, 190));
+        jPanel3.add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 160, 140, 190));
 
         jPanel12.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel12.setOpaque(false);
         jPanel12.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/NYC.jpg"))); // NOI18N
+        jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/cali.jpg"))); // NOI18N
         jPanel12.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 120, 120));
 
-        cmdDestino.add(radioButtonNuevaYork);
-        jPanel12.add(radioButtonNuevaYork, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, -1, -1));
+        cmdDestino.add(radioButtonCali);
+        jPanel12.add(radioButtonCali, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, -1, -1));
 
         jLabel19.setFont(new java.awt.Font("Tahoma", 3, 11)); // NOI18N
-        jLabel19.setText("Nueva York");
-        jPanel12.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, 70, -1));
+        jLabel19.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel19.setText("Cali");
+        jPanel12.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, 30, -1));
 
-        jPanel3.add(jPanel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 130, 140, 190));
+        jPanel3.add(jPanel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 370, 140, 190));
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Datos"));
         jPanel2.setOpaque(false);
@@ -236,7 +271,7 @@ public class AgregarDestino extends javax.swing.JDialog {
         jLabel20.setText("Pasajero:");
         jPanel2.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, -1, 20));
 
-        jPanel3.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, 300, 90));
+        jPanel3.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 60, 300, 90));
 
         jPanel7.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel7.setOpaque(false);
@@ -249,10 +284,11 @@ public class AgregarDestino extends javax.swing.JDialog {
         jPanel7.add(radioButtonBogota, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 3, 11)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Bogota");
         jPanel7.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, 50, -1));
 
-        jPanel3.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, 140, 190));
+        jPanel3.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 160, 140, 190));
 
         jPanel6.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel6.setOpaque(false);
@@ -265,10 +301,11 @@ public class AgregarDestino extends javax.swing.JDialog {
         jPanel6.add(radioButtonMadrid, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, -1, -1));
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 3, 11)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("Madrid");
         jPanel6.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, 50, -1));
 
-        jPanel3.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 340, 140, 190));
+        jPanel3.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 370, 140, 190));
 
         jPanel13.setBorder(javax.swing.BorderFactory.createTitledBorder("Pasajeros"));
         jPanel13.setOpaque(false);
@@ -297,9 +334,14 @@ public class AgregarDestino extends javax.swing.JDialog {
         });
         jScrollPane2.setViewportView(tblDestinos);
 
-        jPanel13.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 570, 130));
+        jPanel13.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 570, 140));
 
-        jPanel3.add(jPanel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 540, 610, 160));
+        jPanel3.add(jPanel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 570, 610, 180));
+
+        jLabel13.setFont(new java.awt.Font("Tahoma", 3, 24)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel13.setText("Seleccione Su Destino");
+        jPanel3.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 20, 270, -1));
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Opciones"));
         jPanel1.setOpaque(false);
@@ -349,10 +391,44 @@ public class AgregarDestino extends javax.swing.JDialog {
         });
         jPanel1.add(cmdEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 30, 110, -1));
 
-        jPanel3.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 40, 480, 80));
+        jPanel3.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 70, 480, 80));
+
+        jPanel15.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jPanel15.setOpaque(false);
+        jPanel15.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/NYC.jpg"))); // NOI18N
+        jPanel15.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 120, 120));
+
+        cmdDestino.add(radioButtonNuevaYork);
+        jPanel15.add(radioButtonNuevaYork, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, -1, -1));
+
+        jLabel24.setFont(new java.awt.Font("Tahoma", 3, 11)); // NOI18N
+        jLabel24.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel24.setText("Nueva York");
+        jPanel15.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, 70, -1));
+
+        jPanel3.add(jPanel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 160, 140, 190));
+
+        jPanel16.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jPanel16.setOpaque(false);
+        jPanel16.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/240290-yellow-street-cartagena.jpg"))); // NOI18N
+        jPanel16.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 120, 120));
+
+        cmdDestino.add(radioButtonCartagena);
+        jPanel16.add(radioButtonCartagena, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, -1, -1));
+
+        jLabel26.setFont(new java.awt.Font("Tahoma", 3, 11)); // NOI18N
+        jLabel26.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel26.setText("Cartagena");
+        jPanel16.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, 60, -1));
+
+        jPanel3.add(jPanel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 160, 140, 190));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/wallpapers-paisajes-nublado-cielo-73719.jpg"))); // NOI18N
-        jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 930, 710));
+        jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 910, 770));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -376,13 +452,13 @@ public class AgregarDestino extends javax.swing.JDialog {
         Personas pasajeros;
         
         if (!(radioButtonBarranquilla.isSelected() || radioButtonBogota.isSelected() || radioButtonMadrid.isSelected() || radioButtonMiami.isSelected()
-        || radioButtonNuevaYork.isSelected() || radioButtonParis.isSelected() || radioButtonRioDeJaneiro.isSelected() || radioButtonSanAndres.isSelected())){
+        || radioButtonNuevaYork.isSelected() || radioButtonParis.isSelected() || radioButtonRioDeJaneiro.isSelected() || radioButtonSanAndres.isSelected() ||radioButtonCali.isSelected() || radioButtonCartagena.isSelected() )){
             getToolkit().beep();
             Helper.mensaje(this, "Seleccione su Destino", 3);    
         }else{
             
         destino=Helper.destinoSeleccionado(radioButtonBarranquilla, radioButtonBogota, radioButtonMadrid, radioButtonMiami, radioButtonNuevaYork,
-        radioButtonParis, radioButtonRioDeJaneiro, radioButtonSanAndres);
+        radioButtonParis, radioButtonRioDeJaneiro, radioButtonSanAndres,radioButtonCali,radioButtonCartagena);
         auxPasajero = cmbPasajeros.getSelectedItem().toString();
         indice = auxPasajero.indexOf("-") - 1;
         cedula = auxPasajero.substring(0, indice);
@@ -576,6 +652,7 @@ public class AgregarDestino extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
@@ -584,6 +661,12 @@ public class AgregarDestino extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -596,6 +679,9 @@ public class AgregarDestino extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel13;
+    private javax.swing.JPanel jPanel14;
+    private javax.swing.JPanel jPanel15;
+    private javax.swing.JPanel jPanel16;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel5;
@@ -606,9 +692,12 @@ public class AgregarDestino extends javax.swing.JDialog {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JRadioButton radioButtonBarranquilla;
     private javax.swing.JRadioButton radioButtonBogota;
+    private javax.swing.JRadioButton radioButtonCali;
+    private javax.swing.JRadioButton radioButtonCartagena;
     private javax.swing.JRadioButton radioButtonMadrid;
     private javax.swing.JRadioButton radioButtonMiami;
     private javax.swing.JRadioButton radioButtonNuevaYork;
+    private javax.swing.JRadioButton radioButtonNuevaYork1;
     private javax.swing.JRadioButton radioButtonParis;
     private javax.swing.JRadioButton radioButtonRioDeJaneiro;
     private javax.swing.JRadioButton radioButtonSanAndres;

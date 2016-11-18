@@ -73,214 +73,6 @@ public class Helper {
         }
     }
 
-    public static int cantidadPares(JTable tabla1) {
-        int nf, nc, aux, cont = 0;
-        nc = tabla1.getColumnCount();
-        nf = tabla1.getRowCount();
-
-        for (int i = 0; i < nf; i++) {
-            for (int j = 0; j < nc; j++) {
-                aux = (int) tabla1.getValueAt(i, j);
-                if (aux % 2 == 0) {
-                    cont++;
-                }
-            }
-        }
-        return cont;
-    }
-
-    public static void pares(JTable tabla1, JTable tabla2) {
-        int nf, nc, aux;
-        nc = tabla1.getColumnCount();
-        nf = tabla1.getRowCount();
-
-        for (int i = 0; i < nf; i++) {
-            for (int j = 0; j < nc; j++) {
-                aux = (int) tabla1.getValueAt(i, j);
-                if (aux % 2 == 0) {
-                    tabla2.setValueAt(aux, i, j);
-                }
-            }
-
-        }
-    }
-
-    public static void letraC(JTable tabla1, JTable tabla2) {
-        int nf, nc, aux;
-        nc = tabla1.getColumnCount();
-        nf = tabla1.getRowCount();
-
-        for (int i = 0; i < nf; i++) {
-            for (int j = 0; j < nc; j++) {
-                aux = (int) tabla1.getValueAt(i, j);
-                if (i == 0 || i == nf - 1 || j == 0) {
-                    tabla2.setValueAt(aux, i, j);
-                }
-            }
-
-        }
-    }
-
-    public static void diagonalPrincipal(JTable tabla1, JTable tabla2) {
-        int nf, nc, aux;
-        nc = tabla1.getColumnCount();
-        nf = tabla1.getRowCount();
-
-        for (int i = 0; i < nf; i++) {
-            for (int j = 0; j < nc; j++) {
-                aux = (int) tabla1.getValueAt(i, j);
-                if (i == j) {
-                    tabla2.setValueAt(aux, i, j);
-                }
-            }
-
-        }
-    }
-
-    public static void letraH(JTable tabla1, JTable tabla2) {
-        int nf, nc, aux;
-        nc = tabla1.getColumnCount();
-        nf = tabla1.getRowCount();
-
-        for (int i = 0; i < nf; i++) {
-            for (int j = 0; j < nc; j++) {
-                aux = (int) tabla1.getValueAt(i, j);
-                if (j == 0 || j == nc - 1 || i == (nf - 1) / 2) {
-                    tabla2.setValueAt(aux, i, j);
-                }
-            }
-
-        }
-    }
-
-    public static int[][] pasoDeDatos(JTable tabla1) {
-        int nf, nc;
-        nc = tabla1.getColumnCount();
-        nf = tabla1.getRowCount();
-
-        int m[][] = new int[nf][nc];
-
-        for (int i = 0; i < m.length; i++) {
-            for (int j = 0; j < m[0].length; j++) {
-
-                m[i][j] = (int) tabla1.getValueAt(i, j);
-            }
-
-        }
-        return m;
-
-    }
-
-    public static String recorridoHaciaArriba(int[][] m, int j) {
-        int nf = m.length;
-        String aux = "";
-        for (int i = nf - 1; i >= 0; i--) {
-            aux = aux + m[i][j] + ", ";
-        }
-        return aux;
-
-    }
-
-    public static String recorridoHaciaArriba(int[][] m, int j, int in, int fin) {
-
-        String aux = "";
-        for (int i = in; i >= fin; i--) {
-            aux = aux + m[i][j] + ", ";
-        }
-        return aux;
-
-    }
-
-    public static String recorridoHaciaAbajo(int[][] m, int j) {
-        int nf = m.length;
-        String aux = "";
-        for (int i = 0; i < nf; i++) {
-            aux = aux + m[i][j] + ", ";
-        }
-        return aux;
-
-    }
-
-    public static String recorridoHaciaAbajo(int[][] m, int j, int in, int fin) {
-
-        String aux = "";
-        for (int i = in; i < fin; i++) {
-            aux = aux + m[i][j] + ", ";
-        }
-        return aux;
-
-    }
-
-    public static String recorridoUno(JTable tabla1) {
-        int[][] m = pasoDeDatos(tabla1);
-        int nc = m[0].length;
-        String aux = "";
-        for (int j = 0; j < nc; j++) {
-            if (j % 2 == 0) {
-                aux = aux + Helper.recorridoHaciaArriba(m, j);
-            } else {
-                aux = aux + Helper.recorridoHaciaAbajo(m, j);
-            }
-        }
-        aux = aux.substring(0, aux.length() - 2) + ".";
-        return aux;
-    }
-
-    public static String recorridoHaciaIzquierda(int[][] m, int i) {
-        int nc = m[0].length;
-        String aux = "";
-        for (int j = nc - 1; j >= 0; j--) {
-            aux = aux + m[i][j] + ", ";
-        }
-        return aux;
-
-    }
-
-    public static String recorridoHaciaIzquierda(int[][] m, int i, int in, int fin) {
-
-        String aux = "";
-        for (int j = in; j >= fin; j--) {
-            aux = aux + m[i][j] + ", ";
-        }
-        return aux;
-
-    }
-
-    public static String recorridoHaciaDerecha(int[][] m, int i) {
-        int nc = m[0].length;
-        String aux = "";
-        for (int j = 0; j < nc; j++) {
-            aux = aux + m[i][j] + ", ";
-        }
-        return aux;
-
-    }
-
-    public static String recorridoHaciaDerecha(int[][] m, int i, int in, int fin) {
-
-        String aux = "";
-        for (int j = in; j < fin; j++) {
-            aux = aux + m[i][j] + ", ";
-        }
-        return aux;
-
-    }
-
-    public static String recorridoDos(JTable tabla1) {
-        int m[][] = pasoDeDatos(tabla1);
-        int nf = m.length;
-        String aux = "";
-        for (int i = 0; i < nf; i++) {
-            if (i % 2 == 0) {
-                aux = aux + recorridoHaciaIzquierda(m, i);
-            } else {
-                aux = aux + recorridoHaciaDerecha(m, i);
-            }
-
-        }
-        aux = aux.substring(0, aux.length() - 2) + ".";
-        return aux;
-    }
 
     public static void llenarTabla(JTable tabla, String ruta) {
         DefaultTableModel tm;
@@ -319,10 +111,11 @@ public class Helper {
         }
     }
 
-    public static void llenarTablaListado(JTable tabla, String ruta) {
+    public static void llenarTablaListado(JTable tabla, String ruta1,String ruta2) {
         DefaultTableModel tm;
         int nf;
-        ArrayList<Destino> destinos = traerDatos(ruta);
+        ArrayList<Destino> destinos = traerDatos(ruta1);
+        ArrayList<Motivo> motivos = traerDatos(ruta1);
         tm = (DefaultTableModel) tabla.getModel();
         limpiadoTabla(tabla);
         nf = destinos.size();
@@ -332,8 +125,10 @@ public class Helper {
             tabla.setValueAt(destinos.get(i).getPasajero().getCedula(), i, 1);
             tabla.setValueAt(destinos.get(i).getPasajero().getNombre(), i, 2);
             tabla.setValueAt(destinos.get(i).getPasajero().getApellido(), i, 3);
-            tabla.setValueAt(destinos.get(i).getPasajero().getOrigen(), i, 4);
-            tabla.setValueAt(destinos.get(i).getDestino(), i, 5);
+            tabla.setValueAt(destinos.get(i).getPasajero().getSexo(), i, 4);
+            tabla.setValueAt(destinos.get(i).getPasajero().getOrigen(), i, 5);
+            tabla.setValueAt(destinos.get(i).getDestino(), i, 6);
+            tabla.setValueAt(motivos.get(i).getMotivo(), i, 7);
         }
     }
 
@@ -408,18 +203,21 @@ public class Helper {
         }
     }
 
-    public static void llenarTablaMotivo(JTable tabla, String ruta) {
+    public static void llenarTablaMotivo(JTable tabla, String ruta1,String ruta2) {
         DefaultTableModel tm;
         int nf;
-        ArrayList<Motivo> motivos = traerDatos(ruta);
+        ArrayList<Motivo> motivos = traerDatos(ruta1);
+        ArrayList<Personas> personas = traerDatos(ruta2);
         tm = (DefaultTableModel) tabla.getModel();
         limpiadoTabla(tabla);
         nf = motivos.size();
         tm.setRowCount(nf);
         for (int i = 0; i < nf; i++) {
             tabla.setValueAt(i + 1, i, 0);
-          
-                tabla.setValueAt(motivos.get(i).getMotivo(), i, 1);
+           tabla.setValueAt(personas.get(i).getCedula(), i, 1);
+           tabla.setValueAt(personas.get(i).getNombre(), i, 2);
+           tabla.setValueAt(personas.get(i).getApellido(), i, 3);
+                tabla.setValueAt(motivos.get(i).getMotivo(), i, 4);
 
         }
     }
@@ -579,15 +377,7 @@ public class Helper {
         return false;
     }
 
-    public static boolean buscarMotivo(String cedula, String ruta) {
-        ArrayList<Motivo> motivos = traerDatos(ruta);
-        for (int i = 0; i < motivos.size(); i++) {
-            if (motivos.get(i).getPasajero().getCedula().equals(cedula)) {
-                return true;
-            }
-        }
-        return false;
-    }
+    
 
     public static Destino traerDestino(String cedula, String ruta) {
         ArrayList<Destino> destinos = traerDatos(ruta);
@@ -600,40 +390,18 @@ public class Helper {
         return null;
     }
 
-    public static Destino traerMotivo(String cedula, String ruta) {
-        ArrayList<Motivo> motivos = traerDatos(ruta);
+    public static boolean buscarMotivo(String cedula, String ruta) {
+        ArrayList<Personas> motivos = traerDatos(ruta);
         for (int i = 0; i < motivos.size(); i++) {
-            if (motivos.get(i).getPasajero().getCedula().equals(cedula)) {
-                return motivos.get(i);
-            }
-
-        }
-        return null;
-    }
-
-    public static boolean buscarPersonaCedulaM(String cedula, String ruta) {
-        ArrayList<Motivo> motivos = traerDatos(ruta);
-        for (int i = 0; i < motivos.size(); i++) {
-            if (motivos.get(i).getPasajero().getCedula().equals(cedula)) {
+            if (motivos.get(i).getCedula().equals(cedula)) {
                 return true;
             }
         }
         return false;
     }
 
-    public static Motivo traerPersonaCedulaM(String cedula, String ruta) {
-        ArrayList<Motivo> motivos = traerDatos(ruta);
-        for (int i = 0; i < motivos.size(); i++) {
-            if (motivos.get(i).getPasajero().getCedula().equals(cedula)) {
-                return motivos.get(i);
-            }
-
-        }
-        return null;
-    }
-
     public static String destinoSeleccionado(JRadioButton boton1, JRadioButton boton2, JRadioButton boton3, JRadioButton boton4, JRadioButton boton5,
-            JRadioButton boton6, JRadioButton boton7, JRadioButton boton8) {
+            JRadioButton boton6, JRadioButton boton7, JRadioButton boton8, JRadioButton boton9, JRadioButton boton10) {
         String destino = "";
         if (boton1.isSelected()) {
             destino = "Barranquilla";
@@ -651,23 +419,25 @@ public class Helper {
             destino = "Rio de Janeiro";
         } else if (boton8.isSelected()) {
             destino = "San Andres";
+        }else if (boton9.isSelected()) {
+            destino = "Cali";
+        }else if (boton10.isSelected()) {
+            destino = "Cartagena";
         }
 
         return destino;
 
     }
 
-    public static String motivoSeleccionado(JRadioButton boton1, JRadioButton boton2, JRadioButton boton3, JRadioButton boton4, JRadioButton boton5) {
+    public static String motivoSeleccionado(JRadioButton boton1, JRadioButton boton2, JRadioButton boton3, JRadioButton boton4) {
         String motivo = "";
         if (boton1.isSelected()) {
             motivo = "Negocios";
-        } else if (boton2.isSelected()) {
-            motivo = "Otro";
-        } else if (boton3.isSelected()) {
+        }else if (boton2.isSelected()) {
             motivo = "Educacion";
-        } else if (boton4.isSelected()) {
+        } else if (boton3.isSelected()) {
             motivo = "Familiar";
-        } else if (boton5.isSelected()) {
+        } else if (boton4.isSelected()) {
             motivo = "Turismo";
         }
 

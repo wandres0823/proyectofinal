@@ -17,13 +17,14 @@ public class ListadoCompleto extends javax.swing.JDialog {
      * Creates new form ListadoCompleto
      */
     
-    String ruta;
+    String ruta,rutaM;
     
     public ListadoCompleto(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
         ruta = "src/datos/destino.txt";
-        Helper.llenarTablaListado(tblTablaPersonas, ruta);
+        rutaM = "src/datos/motivos.txt";
+        Helper.llenarTablaListado(tblTablaPersonas, ruta,rutaM);
     }
 
     /**
@@ -60,11 +61,11 @@ public class ListadoCompleto extends javax.swing.JDialog {
 
             },
             new String [] {
-                "No.", "Cédula", "Nombre", "Apellido", "Origen", "Destino"
+                "No.", "Cédula", "Nombre", "Apellido", "Sexo", "Origen", "Destino", "Motivo"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
+                false, false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -74,12 +75,12 @@ public class ListadoCompleto extends javax.swing.JDialog {
         tblTablaPersonas.setOpaque(false);
         jScrollPane2.setViewportView(tblTablaPersonas);
 
-        jPanel3.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 440, 190));
+        jPanel3.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 540, 190));
 
-        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 480, 230));
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 580, 230));
 
         lblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/apertura-aeropuerto-aena.jpg"))); // NOI18N
-        jPanel1.add(lblFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(-370, 0, 910, 460));
+        jPanel1.add(lblFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(-330, 0, 950, 460));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

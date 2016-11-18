@@ -10,6 +10,9 @@
               <Image iconType="3" name="/imagen/1479248415_vector_66_14.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Opciones"/>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Nirmala UI" size="14" style="3"/>
+            </Property>
             <Property name="selectedIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/imagen/1479248417_vector_66_14.png"/>
             </Property>
@@ -21,6 +24,9 @@
                   <Image iconType="3" name="/imagen/1479248956_reports.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Reportes"/>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Nirmala UI" size="14" style="3"/>
+                </Property>
               </Properties>
               <SubComponents>
                 <Menu class="javax.swing.JMenu" name="MnListados">
@@ -93,6 +99,9 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="mnSalir">
               <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Nirmala UI" size="14" style="3"/>
+                </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/imagen/1479248658_exit.png"/>
                 </Property>
@@ -110,10 +119,16 @@
               <Image iconType="3" name="/imagen/1479248737_taxi_passanger.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Pasajeros"/>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Nirmala UI" size="14" style="3"/>
+            </Property>
           </Properties>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="mnagregar">
               <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Nirmala UI" size="14" style="3"/>
+                </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/imagen/1479248875_user-group-new.png"/>
                 </Property>
@@ -131,10 +146,16 @@
               <Image iconType="3" name="/imagen/1479249263_resolutions-21.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Destino"/>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Nirmala UI" size="14" style="3"/>
+            </Property>
           </Properties>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="MnAgregarDestino">
               <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Nirmala UI" size="14" style="3"/>
+                </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/imagen/1479249350_plane-up.png"/>
                 </Property>

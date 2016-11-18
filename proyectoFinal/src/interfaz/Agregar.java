@@ -30,10 +30,12 @@ public class Agregar extends javax.swing.JDialog {
     ObjectOutputStream salida;
     ArrayList<Personas> personas;
     int aux = 0;
+    
 
     public Agregar(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        txtCedula.requestFocusInWindow();
         JButton botonesH[] = {cmdCancelar,cmdBuscar };
         JButton botonesD[] = {cmdEliminar, cmdGuardar};
 

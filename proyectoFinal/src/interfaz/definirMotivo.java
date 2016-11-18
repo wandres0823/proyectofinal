@@ -10,6 +10,7 @@ import clases.Helper;
 import clases.Motivo;
 import clases.Personas;
 import static interfaz.AgregarDestino.cmdDestino;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
@@ -17,6 +18,7 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -42,7 +44,7 @@ public class definirMotivo extends javax.swing.JDialog {
         Helper.deshabilitarBotones(botonesD);
         rutaP = "src/datos/personas.txt";
         rutaD = "src/datos/destino.txt";
-        rutaM = "src/datos/motivo.txt";
+        rutaM = "src/datos/moti.txt";
         Helper.llenarComboPersonas(cmbPasajeros, rutaP);
         try {
             motivos = Helper.traerDatos(rutaM);
@@ -51,7 +53,7 @@ public class definirMotivo extends javax.swing.JDialog {
             System.out.println(ex.getMessage());
         }
         Helper.volcado(salida, motivos);
-        Helper.llenarTablaMotivo(tblPasajeros, rutaM);
+        Helper.llenarTablaMotivo(tblPasajeros, rutaM,rutaP);
     }
 
     /**
@@ -79,10 +81,6 @@ public class definirMotivo extends javax.swing.JDialog {
         jLabel2 = new javax.swing.JLabel();
         radioButtonNegocios = new javax.swing.JRadioButton();
         jLabel5 = new javax.swing.JLabel();
-        jPanel10 = new javax.swing.JPanel();
-        jLabel14 = new javax.swing.JLabel();
-        radioButtonOtro = new javax.swing.JRadioButton();
-        jLabel15 = new javax.swing.JLabel();
         jPanel11 = new javax.swing.JPanel();
         jLabel16 = new javax.swing.JLabel();
         radioButtonTurismo = new javax.swing.JRadioButton();
@@ -158,12 +156,22 @@ public class definirMotivo extends javax.swing.JDialog {
         cmdCancelar.setText("Cancelar");
         cmdCancelar.setContentAreaFilled(false);
         cmdCancelar.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/1479249855_Close_Icon.png"))); // NOI18N
+        cmdCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdCancelarActionPerformed(evt);
+            }
+        });
         jPanel3.add(cmdCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 31, 120, 30));
 
         cmdEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/1479249785_free-27.png"))); // NOI18N
         cmdEliminar.setText("Eliminar");
         cmdEliminar.setContentAreaFilled(false);
         cmdEliminar.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/1479249786_free-27.png"))); // NOI18N
+        cmdEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdEliminarActionPerformed(evt);
+            }
+        });
         jPanel3.add(cmdEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 30, 110, -1));
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 40, 480, 80));
@@ -182,23 +190,7 @@ public class definirMotivo extends javax.swing.JDialog {
         jLabel5.setText("Negocios");
         jPanel7.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, 60, -1));
 
-        jPanel1.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, 140, 190));
-
-        jPanel10.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jPanel10.setOpaque(false);
-        jPanel10.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/preguntas.jpg"))); // NOI18N
-        jPanel10.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 120, 120));
-
-        Motivo.add(radioButtonOtro);
-        jPanel10.add(radioButtonOtro, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, -1, -1));
-
-        jLabel15.setFont(new java.awt.Font("Tahoma", 3, 11)); // NOI18N
-        jLabel15.setText("Otro");
-        jPanel10.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, 30, -1));
-
-        jPanel1.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 130, 140, 190));
+        jPanel1.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 130, 140, 190));
 
         jPanel11.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel11.setOpaque(false);
@@ -214,7 +206,7 @@ public class definirMotivo extends javax.swing.JDialog {
         jLabel17.setText("Turismo");
         jPanel11.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, 50, -1));
 
-        jPanel1.add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 130, 140, 190));
+        jPanel1.add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 130, 140, 190));
 
         jPanel12.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel12.setOpaque(false);
@@ -230,7 +222,7 @@ public class definirMotivo extends javax.swing.JDialog {
         jLabel19.setText("Educacion");
         jPanel12.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, 60, -1));
 
-        jPanel1.add(jPanel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 130, 140, 190));
+        jPanel1.add(jPanel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 130, 140, 190));
 
         jPanel13.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel13.setOpaque(false);
@@ -246,7 +238,7 @@ public class definirMotivo extends javax.swing.JDialog {
         jLabel22.setText("Familiar");
         jPanel13.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, 50, -1));
 
-        jPanel1.add(jPanel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 130, 140, 190));
+        jPanel1.add(jPanel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 130, 140, 190));
 
         jPanel14.setBorder(javax.swing.BorderFactory.createTitledBorder("Pasajeros"));
         jPanel14.setOpaque(false);
@@ -266,6 +258,11 @@ public class definirMotivo extends javax.swing.JDialog {
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
+            }
+        });
+        tblPasajeros.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblPasajerosMouseClicked(evt);
             }
         });
         jScrollPane2.setViewportView(tblPasajeros);
@@ -297,54 +294,116 @@ public class definirMotivo extends javax.swing.JDialog {
     }//GEN-LAST:event_txtCedulaKeyTyped
 
     private void cmdGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdGuardarActionPerformed
-      
-        String auxPasajero, cedula,destino;
+       String auxMotivo, cedula,motivo;
         int indice;
-        Personas pasajeros;
+        Personas motivos;
         
-       
+        if (!(radioButtonEducacion.isSelected() || radioButtonFamiliar.isSelected() || radioButtonNegocios.isSelected() || radioButtonTurismo.isSelected() )){
+            getToolkit().beep();
+            Helper.mensaje(this, "Seleccione su Motivo", 3);    
+        }else{
             
-         destino=Helper.motivoSeleccionado(radioButtonNegocios, radioButtonOtro, radioButtonEducacion, radioButtonFamiliar, radioButtonTurismo);
-        auxPasajero = cmbPasajeros.getSelectedItem().toString();
-        indice = auxPasajero.indexOf("-") - 1;
-        cedula = auxPasajero.substring(0, indice);
-        ArrayList<Destino> destinosModificado;
-        pasajeros = Helper.traerPersonaCedula(cedula, rutaP);
+        motivo=Helper.motivoSeleccionado(radioButtonNegocios, radioButtonEducacion, radioButtonFamiliar, radioButtonTurismo);
+        
+        auxMotivo = cmbPasajeros.getSelectedItem().toString();
+        indice = auxMotivo.indexOf("-") - 1;
+        cedula = auxMotivo.substring(0, indice);
+        ArrayList<Motivo> motivosModificado;
+       motivos = Helper.traerPersonaCedula(cedula, rutaP);
         try {
             if (aux == 0) {
 
-                Destino d = new Destino(destino, pasajeros);
-                d.guardar(salida);
+                Motivo m = new Motivo(motivo);
+                m.guardar(salida);
 
             } else {
-                destinosModificado = Helper.modificarDestino(rutaD, cedula,destino, pasajeros);
-                salida = new ObjectOutputStream(new FileOutputStream(rutaD));
-                Helper.volcado(salida, destinosModificado);
+                motivosModificado = Helper.modificarMotivo(rutaM, cedula,motivo);
+                salida = new ObjectOutputStream(new FileOutputStream(rutaM));
+                Helper.volcado(salida, motivosModificado);
                 aux = 0;
-                Helper.mensaje(this, "Destino Actualizado Correctamente!", 1);
+                Helper.mensaje(this, "Motivo Actualizado Correctamente!", 1);
             }
         } catch (IOException ex) {
             Logger.getLogger(Agregar.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-        Helper.llenarTablaDestino(tblPasajeros, rutaM);
+        Helper.llenarTablaMotivo(tblPasajeros, rutaM,rutaP);
 
        
 
         cmbPasajeros.setSelectedIndex(0);
-        cmdDestino.clearSelection();
+        Motivo.clearSelection();
         
         JButton botonesH[] = {cmdCancelar,cmdBuscar };
         JButton botonesD[] = {cmdEliminar, cmdGuardar};
 
         Helper.habilitarBotones(botonesH);
         Helper.deshabilitarBotones(botonesD);
-        
-       
+        }
     }//GEN-LAST:event_cmdGuardarActionPerformed
 
+    private void cmdEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdEliminarActionPerformed
+    int i, op;
+        op = JOptionPane.showConfirmDialog(this, "¿Seguro que desea eliminar a esta persona?", "Eliminar", JOptionPane.YES_NO_OPTION);
+
+        ArrayList<Motivo> motivos = Helper.traerDatos(rutaM);
+        if (op == JOptionPane.YES_OPTION) {
+            i = tblPasajeros.getSelectedRow();
+            motivos.remove(i);
+            try {
+                salida = new ObjectOutputStream(new FileOutputStream(rutaM));
+            } catch (FileNotFoundException ex) {
+                System.out.println(ex.getMessage());
+            } catch (IOException ex) {
+                System.out.println(ex.getMessage());
+            }
+            Helper.volcado(salida, motivos);
+            Helper.llenarTablaMotivo(tblPasajeros, rutaM,rutaP);
+            txtCedula.setText("");
+            
+          
+          
+            txtCedula.requestFocusInWindow();
+        }
+        JButton botonesH[]={cmdBuscar,cmdCancelar};
+        JButton botonesD[]={cmdEliminar,cmdGuardar};
+        
+        Helper.habilitarBotones(botonesH);
+        Helper.deshabilitarBotones(botonesD);
+        
+        
+        
+    }//GEN-LAST:event_cmdEliminarActionPerformed
+
+    private void tblPasajerosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblPasajerosMouseClicked
+    int i;
+        Destino d;
+        ArrayList<Destino> destinoss = Helper.traerDatos(rutaD);
+        i = tblPasajeros.getSelectedRow();
+
+        d = destinoss.get(i);
+
+        txtCedula.setText(d.getPasajero().getCedula());
+
+        JButton botonesH[]={cmdEliminar};
+        
+        Helper.habilitarBotones(botonesH);
+    }//GEN-LAST:event_tblPasajerosMouseClicked
+
+    private void cmdCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdCancelarActionPerformed
+    txtCedula.setText("");
+        cmbPasajeros.setSelectedIndex(0);
+        Motivo.clearSelection();
+        
+         JButton botonesH[]={cmdBuscar,cmdCancelar};
+        JButton botonesD[]={cmdEliminar,cmdGuardar};
+        
+        Helper.habilitarBotones(botonesH);
+        Helper.deshabilitarBotones(botonesD);
+    }//GEN-LAST:event_cmdCancelarActionPerformed
+
     private void cmdBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdBuscarActionPerformed
-   String cedula, auxPasajeros;
+    String cedula, auxPasajeros;
         Personas pasajeros;
         cedula = txtCedula.getText();
         Destino d;
@@ -357,7 +416,7 @@ public class definirMotivo extends javax.swing.JDialog {
         
         else{
         
-        if (Helper.buscarMotivo(cedula, rutaD)) {
+        if (Helper.buscarDestino(cedula, rutaD)) {
             d = Helper.traerDestino(cedula, rutaD);
             txtCedula.setText(d.getPasajero().getCedula());
             pasajeros = d.getPasajero();
@@ -427,8 +486,6 @@ public class definirMotivo extends javax.swing.JDialog {
     private javax.swing.JButton cmdCancelar;
     private javax.swing.JButton cmdEliminar;
     private javax.swing.JButton cmdGuardar;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
@@ -440,7 +497,6 @@ public class definirMotivo extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel13;
@@ -452,7 +508,6 @@ public class definirMotivo extends javax.swing.JDialog {
     private javax.swing.JRadioButton radioButtonEducacion;
     private javax.swing.JRadioButton radioButtonFamiliar;
     private javax.swing.JRadioButton radioButtonNegocios;
-    private javax.swing.JRadioButton radioButtonOtro;
     private javax.swing.JRadioButton radioButtonTurismo;
     private javax.swing.JTable tblPasajeros;
     private javax.swing.JTextField txtCedula;

@@ -1,5 +1,6 @@
 /*
- * To change this template, choose Tools | Templates
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
 package interfaz;
@@ -8,15 +9,14 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author karrieta9
+ * @author sony
  */
-public class Inicio extends javax.swing.JDialog {
+public class InicioDeSesion extends javax.swing.JFrame {
 
     /**
-     * Creates new form Inicio
+     * Creates new form InicioDeSesion
      */
-    public Inicio(java.awt.Frame parent, boolean modal) {
-        super(parent, modal);
+    public InicioDeSesion() {
         initComponents();
     }
 
@@ -37,8 +37,8 @@ public class Inicio extends javax.swing.JDialog {
         jButton1 = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Inicio De Sesion");
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Iniciar Sesion");
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -71,7 +71,7 @@ public class Inicio extends javax.swing.JDialog {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 484, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -83,21 +83,21 @@ public class Inicio extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-   char clave[]=jPassContrasena.getPassword();
-     String clavedef=new String (clave);
-     
-     if (txtUsuario.getText().equals("keiner0930") && clavedef.equals("12345")){
-         this.setVisible(false);
-     JOptionPane.showMessageDialog(null, "Bienvenido\n"+ "Has Ingresado Satisfactoriamente al Sistema", "Mensaje de Bienvenida",JOptionPane.INFORMATION_MESSAGE);
-     
-       Aerolinea i = new Aerolinea();
-        i.setVisible(true);
-     }
+        char clave[]=jPassContrasena.getPassword();
+        String clavedef=new String (clave);
+
+        if (txtUsuario.getText().equals("keiner0930") && clavedef.equals("12345")){
+            this.setVisible(false);
+            JOptionPane.showMessageDialog(null, "Bienvenido a Aerolinea All Star\n"+ "Has Ingresado Satisfactoriamente al Sistema", "Mensaje de Bienvenida",JOptionPane.INFORMATION_MESSAGE);
+
+            Aerolinea i = new Aerolinea();
+            i.setVisible(true);
+        }
         else{
-            
-     JOptionPane.showMessageDialog(null,"Acceso denegado:\n" + " Porfavor ingrese un Usuario y/o Contraseña Correctamente","Acceso denegado",JOptionPane.INFORMATION_MESSAGE);
-     }
-   
+
+            JOptionPane.showMessageDialog(null,"Acceso denegado:\n" + " Porfavor ingrese un Usuario y/o Contraseña Correctamente","Acceso denegado",JOptionPane.INFORMATION_MESSAGE);
+        }
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -117,30 +117,24 @@ public class Inicio extends javax.swing.JDialog {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Inicio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InicioDeSesion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Inicio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InicioDeSesion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Inicio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InicioDeSesion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Inicio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InicioDeSesion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
-        /* Create and display the dialog */
+        /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                Inicio dialog = new Inicio(new javax.swing.JFrame(), true);
-                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
-                    @Override
-                    public void windowClosing(java.awt.event.WindowEvent e) {
-                        System.exit(0);
-                    }
-                });
-                dialog.setVisible(true);
+                new InicioDeSesion().setVisible(true);
             }
         });
     }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;

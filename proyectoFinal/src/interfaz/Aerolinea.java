@@ -60,10 +60,12 @@ public class Aerolinea extends javax.swing.JFrame {
 
         mnOpciones.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/1479248415_vector_66_14.png"))); // NOI18N
         mnOpciones.setText("Opciones");
+        mnOpciones.setFont(new java.awt.Font("Nirmala UI", 3, 14)); // NOI18N
         mnOpciones.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/1479248417_vector_66_14.png"))); // NOI18N
 
         MnReportes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/1479248956_reports.png"))); // NOI18N
         MnReportes.setText("Reportes");
+        MnReportes.setFont(new java.awt.Font("Nirmala UI", 3, 14)); // NOI18N
 
         MnListados.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/1479249041_list-alt.png"))); // NOI18N
         MnListados.setText("Listados");
@@ -114,6 +116,7 @@ public class Aerolinea extends javax.swing.JFrame {
         mnOpciones.add(MnReportes);
         mnOpciones.add(jSeparator2);
 
+        mnSalir.setFont(new java.awt.Font("Nirmala UI", 3, 14)); // NOI18N
         mnSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/1479248658_exit.png"))); // NOI18N
         mnSalir.setText("Salir");
         mnSalir.addActionListener(new java.awt.event.ActionListener() {
@@ -127,7 +130,9 @@ public class Aerolinea extends javax.swing.JFrame {
 
         MnPasajeros.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/1479248737_taxi_passanger.png"))); // NOI18N
         MnPasajeros.setText("Pasajeros");
+        MnPasajeros.setFont(new java.awt.Font("Nirmala UI", 3, 14)); // NOI18N
 
+        mnagregar.setFont(new java.awt.Font("Nirmala UI", 3, 14)); // NOI18N
         mnagregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/1479248875_user-group-new.png"))); // NOI18N
         mnagregar.setText("Agregar");
         mnagregar.addActionListener(new java.awt.event.ActionListener() {
@@ -141,7 +146,9 @@ public class Aerolinea extends javax.swing.JFrame {
 
         MnDestino.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/1479249263_resolutions-21.png"))); // NOI18N
         MnDestino.setText("Destino");
+        MnDestino.setFont(new java.awt.Font("Nirmala UI", 3, 14)); // NOI18N
 
+        MnAgregarDestino.setFont(new java.awt.Font("Nirmala UI", 3, 14)); // NOI18N
         MnAgregarDestino.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/1479249350_plane-up.png"))); // NOI18N
         MnAgregarDestino.setText("Agregar");
         MnAgregarDestino.addActionListener(new java.awt.event.ActionListener() {
