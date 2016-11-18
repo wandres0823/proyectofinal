@@ -48,6 +48,7 @@ public class Aerolinea extends javax.swing.JFrame {
         mnagregar = new javax.swing.JMenuItem();
         MnDestino = new javax.swing.JMenu();
         MnAgregarDestino = new javax.swing.JMenuItem();
+        MnBuscadorDeDestino = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Aerolinea All Star");
@@ -158,6 +159,16 @@ public class Aerolinea extends javax.swing.JFrame {
         });
         MnDestino.add(MnAgregarDestino);
 
+        MnBuscadorDeDestino.setFont(new java.awt.Font("Nirmala UI", 3, 14)); // NOI18N
+        MnBuscadorDeDestino.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/1479249453_system-search.png"))); // NOI18N
+        MnBuscadorDeDestino.setText("Buscador de Destino");
+        MnBuscadorDeDestino.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MnBuscadorDeDestinoActionPerformed(evt);
+            }
+        });
+        MnDestino.add(MnBuscadorDeDestino);
+
         jMenuBar1.add(MnDestino);
 
         setJMenuBar(jMenuBar1);
@@ -212,6 +223,11 @@ public class Aerolinea extends javax.swing.JFrame {
     lps.setVisible(true);
     }//GEN-LAST:event_MnListadoPorSexoActionPerformed
 
+    private void MnBuscadorDeDestinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnBuscadorDeDestinoActionPerformed
+    buscarDestino bd = new buscarDestino(this,true);
+    bd.setVisible(true);
+    }//GEN-LAST:event_MnBuscadorDeDestinoActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -256,6 +272,7 @@ public class Aerolinea extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem MnAgregarDestino;
+    private javax.swing.JMenuItem MnBuscadorDeDestino;
     private javax.swing.JMenu MnCantidades;
     private javax.swing.JMenu MnDestino;
     private javax.swing.JMenuItem MnListadoCompleto;

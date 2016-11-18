@@ -1,4 +1,4 @@
-    /*
+/*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -11,20 +11,18 @@ import clases.Helper;
  *
  * @author sony
  */
-public class ListadoCompleto extends javax.swing.JDialog {
+public class buscarDestino extends javax.swing.JDialog {
 
     /**
-     * Creates new form ListadoCompleto
+     * Creates new form buscarDestino
      */
-    
     String ruta;
-    
-    public ListadoCompleto(java.awt.Frame parent, boolean modal) {
+    public buscarDestino(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
         ruta = "src/datos/destino.txt";
        
-        Helper.llenarTablaListado(tblTablaPersonas, ruta);
+        
     }
 
     /**
@@ -38,23 +36,24 @@ public class ListadoCompleto extends javax.swing.JDialog {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jPanel3 = new javax.swing.JPanel();
+        cmbDestino = new javax.swing.JComboBox<>();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblTablaPersonas = new javax.swing.JTable();
-        lblFondo = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        cmdBuscar = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Listado Completo");
+        setTitle("Buscador de Destinos");
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel1.setText("Listado Completo De Personas Ingresadas");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 20, -1, -1));
+        jLabel1.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
+        jLabel1.setText("Destino:");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 90, -1, -1));
 
-        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Personas", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 3, 11))); // NOI18N
-        jPanel3.setOpaque(false);
-        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        cmbDestino.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Barranquilla", "Bogota", "Cali", "Cartagena", "Madrid", "Miami", "Nueva York", "Paris", "Rio De Janeiro", "San Andres" }));
+        jPanel1.add(cmbDestino, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 90, 110, 30));
 
         tblTablaPersonas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -75,12 +74,27 @@ public class ListadoCompleto extends javax.swing.JDialog {
         tblTablaPersonas.setOpaque(false);
         jScrollPane2.setViewportView(tblTablaPersonas);
 
-        jPanel3.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 540, 190));
+        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, 540, 190));
 
-        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 580, 230));
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel2.setText("Buscador de Destinos");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 30, -1, -1));
 
-        lblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/apertura-aeropuerto-aena.jpg"))); // NOI18N
-        jPanel1.add(lblFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(-330, 0, 950, 460));
+        cmdBuscar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        cmdBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/1479249453_system-search.png"))); // NOI18N
+        cmdBuscar.setText("Buscar");
+        cmdBuscar.setBorderPainted(false);
+        cmdBuscar.setContentAreaFilled(false);
+        cmdBuscar.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/1479249454_system-search.png"))); // NOI18N
+        cmdBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdBuscarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(cmdBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 80, 130, 40));
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/Airbus 360.jpg"))); // NOI18N
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(-260, -20, 870, 410));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -97,10 +111,16 @@ public class ListadoCompleto extends javax.swing.JDialog {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void cmdBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdBuscarActionPerformed
+        String destino =cmbDestino.getSelectedItem().toString();
+
+        Helper.buscadorDestino(tblTablaPersonas, ruta,destino);
+
+    }//GEN-LAST:event_cmdBuscarActionPerformed
+
     /**
      * @param args the command line arguments
      */
-    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -115,23 +135,20 @@ public class ListadoCompleto extends javax.swing.JDialog {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ListadoCompleto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(buscarDestino.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ListadoCompleto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(buscarDestino.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ListadoCompleto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(buscarDestino.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ListadoCompleto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(buscarDestino.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                ListadoCompleto dialog = new ListadoCompleto(new javax.swing.JFrame(), true);
+                buscarDestino dialog = new buscarDestino(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
@@ -144,11 +161,13 @@ public class ListadoCompleto extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> cmbDestino;
+    private javax.swing.JButton cmdBuscar;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JLabel lblFondo;
     private javax.swing.JTable tblTablaPersonas;
     // End of variables declaration//GEN-END:variables
 }

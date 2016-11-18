@@ -111,11 +111,11 @@ public class Helper {
         }
     }
 
-    public static void llenarTablaListado(JTable tabla, String ruta1,String ruta2) {
+    public static void llenarTablaListado(JTable tabla, String ruta) {
         DefaultTableModel tm;
         int nf;
-        ArrayList<Destino> destinos = traerDatos(ruta1);
-        ArrayList<Motivo> motivos = traerDatos(ruta1);
+        ArrayList<Destino> destinos = traerDatos(ruta);
+      
         tm = (DefaultTableModel) tabla.getModel();
         limpiadoTabla(tabla);
         nf = destinos.size();
@@ -128,7 +128,28 @@ public class Helper {
             tabla.setValueAt(destinos.get(i).getPasajero().getSexo(), i, 4);
             tabla.setValueAt(destinos.get(i).getPasajero().getOrigen(), i, 5);
             tabla.setValueAt(destinos.get(i).getDestino(), i, 6);
-            tabla.setValueAt(motivos.get(i).getMotivo(), i, 7);
+         
+        }
+    }
+    
+    public static void llenarTablaBuscador(JTable tabla, ArrayList<Destino> destinos) {
+        DefaultTableModel tm;
+        int nf;
+        
+      
+        tm = (DefaultTableModel) tabla.getModel();
+        limpiadoTabla(tabla);
+        nf = destinos.size();
+        tm.setRowCount(nf);
+        for (int i = 0; i < nf; i++) {
+            tabla.setValueAt(i + 1, i, 0);
+            tabla.setValueAt(destinos.get(i).getPasajero().getCedula(), i, 1);
+            tabla.setValueAt(destinos.get(i).getPasajero().getNombre(), i, 2);
+            tabla.setValueAt(destinos.get(i).getPasajero().getApellido(), i, 3);
+            tabla.setValueAt(destinos.get(i).getPasajero().getSexo(), i, 4);
+            tabla.setValueAt(destinos.get(i).getPasajero().getOrigen(), i, 5);
+            tabla.setValueAt(destinos.get(i).getDestino(), i, 6);
+         
         }
     }
 
@@ -161,8 +182,9 @@ public class Helper {
             tabla.setValueAt(destinos.get(i).getPasajero().getCedula(), i, 1);
             tabla.setValueAt(destinos.get(i).getPasajero().getNombre(), i, 2);
             tabla.setValueAt(destinos.get(i).getPasajero().getApellido(), i, 3);
-            tabla.setValueAt(destinos.get(i).getPasajero().getOrigen(), i, 4);
-            tabla.setValueAt(destinos.get(i).getDestino(), i, 5);
+            tabla.setValueAt(destinos.get(i).getPasajero().getSexo(), i, 4);
+            tabla.setValueAt(destinos.get(i).getPasajero().getOrigen(), i, 5);
+            tabla.setValueAt(destinos.get(i).getDestino(), i, 6);
         }
     }
 
@@ -203,24 +225,7 @@ public class Helper {
         }
     }
 
-    public static void llenarTablaMotivo(JTable tabla, String ruta1,String ruta2) {
-        DefaultTableModel tm;
-        int nf;
-        ArrayList<Motivo> motivos = traerDatos(ruta1);
-        ArrayList<Personas> personas = traerDatos(ruta2);
-        tm = (DefaultTableModel) tabla.getModel();
-        limpiadoTabla(tabla);
-        nf = motivos.size();
-        tm.setRowCount(nf);
-        for (int i = 0; i < nf; i++) {
-            tabla.setValueAt(i + 1, i, 0);
-           tabla.setValueAt(personas.get(i).getCedula(), i, 1);
-           tabla.setValueAt(personas.get(i).getNombre(), i, 2);
-           tabla.setValueAt(personas.get(i).getApellido(), i, 3);
-                tabla.setValueAt(motivos.get(i).getMotivo(), i, 4);
-
-        }
-    }
+   
 
     public static ArrayList traerDatos(String ruta) {
         FileInputStream archivo;
@@ -305,19 +310,7 @@ public class Helper {
         return null;
     }
 
-    public static ArrayList<Motivo> modificarMotivo(String ruta, String cedula, String motivo) {
-        ArrayList<Motivo> motivos = traerDatos(ruta);
-        for (int i = 0; i < motivos.size(); i++) {
-            if (motivos.get(i).getClass().equals(cedula)) {
-                motivos.get(i).setMotivo(motivo);
-                
-
-                return motivos;
-            }
-
-        }
-        return null;
-    }
+    
 
     public static void listadoPorOrigen(JTable tabla, String ruta, String origen) {
         ArrayList<Destino> destinos = traerDatos(ruta);
@@ -329,6 +322,19 @@ public class Helper {
 
         }
         llenarTablaOrigen(tabla, DestinopersonasFiltradas);
+
+    }
+    
+    public static void buscadorDestino(JTable tabla, String ruta, String destino) {
+        ArrayList<Destino> destinos = traerDatos(ruta);
+        ArrayList<Destino> DestinopersonasFiltradas = new ArrayList();
+        for (int i = 0; i < destinos.size(); i++) {
+            if (destinos.get(i).getDestino().equalsIgnoreCase(destino)) {
+                DestinopersonasFiltradas.add(destinos.get(i));
+            }
+
+        }
+        llenarTablaBuscador(tabla, DestinopersonasFiltradas);
 
     }
 

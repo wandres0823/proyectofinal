@@ -94,11 +94,11 @@ public class ListadoPorOrigen extends javax.swing.JDialog {
 
             },
             new String [] {
-                "No.", "Cédula", "Nombre", "Apellido", "Origen", "Destino"
+                "No.", "Cédula", "Nombre", "Apellido", "Sexo", "Origen", "Destino"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
+                false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -108,12 +108,12 @@ public class ListadoPorOrigen extends javax.swing.JDialog {
         tblTablaPersonas.setOpaque(false);
         jScrollPane2.setViewportView(tblTablaPersonas);
 
-        jPanel3.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 440, 190));
+        jPanel3.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 540, 190));
 
-        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, 480, 230));
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, 580, 230));
 
         lblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/apertura-aeropuerto-aena.jpg"))); // NOI18N
-        jPanel1.add(lblFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(-370, 0, 910, 460));
+        jPanel1.add(lblFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(-330, 0, 930, 460));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
