@@ -418,10 +418,8 @@ public class Helper {
         tm.setRowCount(nf);
         for (int i = 0; i < nf; i++) {
             tabla.setValueAt(i + 1, i, 0);
-            tabla.setValueAt(motivos.get(i).getPasajero().getCedula(), i, 1);
-            tabla.setValueAt(motivos.get(i).getPasajero().getNombre(), i, 2);
-            tabla.setValueAt(motivos.get(i).getPasajero().getApellido(), i, 3);
-            tabla.setValueAt(motivos.get(i).getMotivo(), i, 4);
+          
+                tabla.setValueAt(motivos.get(i).getMotivo(), i, 1);
 
         }
     }
@@ -509,12 +507,12 @@ public class Helper {
         return null;
     }
 
-    public static ArrayList<Motivo> modificarMotivo(String ruta, String cedula, String motivo, Personas pasajero) {
+    public static ArrayList<Motivo> modificarMotivo(String ruta, String cedula, String motivo) {
         ArrayList<Motivo> motivos = traerDatos(ruta);
         for (int i = 0; i < motivos.size(); i++) {
-            if (motivos.get(i).getPasajero().getCedula().equals(cedula)) {
-                motivos.get(i).setDestino(motivo);
-                motivos.get(i).setPasajero(pasajero);
+            if (motivos.get(i).getCedula().equals(cedula)) {
+                motivos.get(i).setMotivo(motivo);
+                
 
                 return motivos;
             }

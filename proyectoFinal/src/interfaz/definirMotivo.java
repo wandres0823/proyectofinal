@@ -135,11 +135,6 @@ public class definirMotivo extends javax.swing.JDialog {
         cmdBuscar.setText("Buscar");
         cmdBuscar.setContentAreaFilled(false);
         cmdBuscar.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/1479249454_system-search.png"))); // NOI18N
-        cmdBuscar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmdBuscarActionPerformed(evt);
-            }
-        });
         jPanel3.add(cmdBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 110, -1));
 
         cmdGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/1479249679_save.png"))); // NOI18N
@@ -157,22 +152,12 @@ public class definirMotivo extends javax.swing.JDialog {
         cmdCancelar.setText("Cancelar");
         cmdCancelar.setContentAreaFilled(false);
         cmdCancelar.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/1479249855_Close_Icon.png"))); // NOI18N
-        cmdCancelar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmdCancelarActionPerformed(evt);
-            }
-        });
         jPanel3.add(cmdCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 31, 120, 30));
 
         cmdEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/1479249785_free-27.png"))); // NOI18N
         cmdEliminar.setText("Eliminar");
         cmdEliminar.setContentAreaFilled(false);
         cmdEliminar.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/1479249786_free-27.png"))); // NOI18N
-        cmdEliminar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmdEliminarActionPerformed(evt);
-            }
-        });
         jPanel3.add(cmdEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 30, 110, -1));
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 40, 480, 80));
@@ -277,11 +262,6 @@ public class definirMotivo extends javax.swing.JDialog {
                 return canEdit [columnIndex];
             }
         });
-        tblPasajeros.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tblPasajerosMouseClicked(evt);
-            }
-        });
         jScrollPane2.setViewportView(tblPasajeros);
 
         jPanel14.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 570, 190));
@@ -310,150 +290,18 @@ public class definirMotivo extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_txtCedulaKeyTyped
 
-    private void cmdBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdBuscarActionPerformed
-     /*   String cedula, auxMotivo;
-        Motivo motivos;
-        cedula = txtCedula.getText();
-        Motivo m;
-
-        if (txtCedula.getText().isEmpty()) {
-            getToolkit().beep();
-            Helper.mensaje(this, "Digite Numero de su Cedula", 3);
-            txtCedula.requestFocusInWindow();
-        }
-
-        else{
-
-            if (Helper.buscarMotivo(cedula, rutaM)) {
-                m = Helper.traerMotivo(cedula, rutaM);
-                txtCedula.setText(m.getPasajero().getCedula());
-                motivos = m.getPasajero();
-                auxMotivo = motivos.getPasajero().getCedula() + " - " + motivos.getPasajero().getNombre() + " " + motivos.getPasajero().getApellido();
-                cmbPasajeros.setSelectedItem(auxPasajeros);
-
-                aux = 1;
-            } else {
-                txtCedula.requestFocusInWindow();
-                aux = 0;
-            }
-            JButton botonesH[]={cmdGuardar,cmdCancelar};
-            JButton botonesD[]={cmdBuscar, cmdEliminar};
-
-            Helper.habilitarBotones(botonesH);
-            Helper.deshabilitarBotones(botonesD);
-        }*/
-    }//GEN-LAST:event_cmdBuscarActionPerformed
-
     private void cmdGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdGuardarActionPerformed
-
-        String auxMotivo, cedula,motivo,destino;
-        int indice;
-        Motivo motivos;
-        Destino d = null;
-        Personas pasajero = null;
-
-        if (!(radioButtonEducacion.isSelected() || radioButtonNegocios.isSelected() || radioButtonFamiliar.isSelected() || radioButtonOtro.isSelected()
-            || radioButtonTurismo.isSelected() )){
-        getToolkit().beep();
-        Helper.mensaje(this, "Seleccione su Motivo", 3);
-        }else{
-
+        try {
+            String motivo;
             motivo=Helper.motivoSeleccionado(radioButtonNegocios, radioButtonOtro, radioButtonEducacion, radioButtonFamiliar, radioButtonTurismo);
             
-            
-            
-            auxMotivo = cmbPasajeros.getSelectedItem().toString();
-            indice = auxMotivo.indexOf("-") - 1;
-            cedula = auxMotivo.substring(0, indice);
-            ArrayList<Motivo> motivosModificado;
-            motivos = Helper.traerPersonaCedulaM(cedula, rutaP);
-            try {
-                if (aux == 0) {
- destino=d.getDestino();
- pasajero=d.getPasajero();
- 
- 
-                    Motivo m = new Motivo(motivo, destino,pasajero);
-                    m.guardar(salida);
-
-                } else {
-                    motivosModificado = Helper.modificarMotivo(rutaM, cedula,motivo, pasajero);
-                    salida = new ObjectOutputStream(new FileOutputStream(rutaM));
-                    Helper.volcado(salida, motivosModificado);
-                    aux = 0;
-                    Helper.mensaje(this, "Motivo Actualizado Correctamente!", 1);
-                }
-            } catch (IOException ex) {
-                Logger.getLogger(Agregar.class.getName()).log(Level.SEVERE, null, ex);
-            }
-
-            Helper.llenarTablaMotivo(tblPasajeros, rutaD);
-
-            cmbPasajeros.setSelectedIndex(0);
-            Motivo.clearSelection();
-
-            JButton botonesH[] = {cmdCancelar,cmdBuscar };
-            JButton botonesD[] = {cmdEliminar, cmdGuardar};
-
-            Helper.habilitarBotones(botonesH);
-            Helper.deshabilitarBotones(botonesD);
+            Motivo m = new Motivo(motivo);
+            m.guardar(salida);
+        } catch (IOException ex) {
+            Logger.getLogger(definirMotivo.class.getName()).log(Level.SEVERE, null, ex);
         }
+        Helper.llenarTablaMotivo(tblPasajeros, rutaM);
     }//GEN-LAST:event_cmdGuardarActionPerformed
-
-    private void cmdCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdCancelarActionPerformed
-        txtCedula.setText("");
-        cmbPasajeros.setSelectedIndex(0);
-        Motivo.clearSelection();
-
-        JButton botonesH[]={cmdBuscar,cmdCancelar};
-        JButton botonesD[]={cmdEliminar,cmdGuardar};
-
-        Helper.habilitarBotones(botonesH);
-        Helper.deshabilitarBotones(botonesD);
-    }//GEN-LAST:event_cmdCancelarActionPerformed
-
-    private void cmdEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdEliminarActionPerformed
-    /*    int i, op;
-        op = JOptionPane.showConfirmDialog(this, "¿Seguro que desea eliminar a esta persona?", "Eliminar", JOptionPane.YES_NO_OPTION);
-
-        ArrayList<Destino> destinos = Helper.traerDatos(rutaD);
-        if (op == JOptionPane.YES_OPTION) {
-            i = tblPasajeros.getSelectedRow();
-            destinos.remove(i);
-            try {
-                salida = new ObjectOutputStream(new FileOutputStream(rutaD));
-            } catch (FileNotFoundException ex) {
-                System.out.println(ex.getMessage());
-            } catch (IOException ex) {
-                System.out.println(ex.getMessage());
-            }
-            Helper.volcado(salida, destinos);
-            Helper.llenarTablaDestino(tblPasajeros, rutaD);
-            txtCedula.setText("");
-
-            txtCedula.requestFocusInWindow();
-        }
-        JButton botonesH[]={cmdBuscar,cmdCancelar};
-        JButton botonesD[]={cmdEliminar,cmdGuardar};
-
-        Helper.habilitarBotones(botonesH);
-        Helper.deshabilitarBotones(botonesD);*/
-    }//GEN-LAST:event_cmdEliminarActionPerformed
-
-    private void tblPasajerosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblPasajerosMouseClicked
-        int i;
-        Destino d;
-        ArrayList<Destino> destinoss = Helper.traerDatos(rutaD);
-        i = tblPasajeros.getSelectedRow();
-
-        d = destinoss.get(i);
-
-        txtCedula.setText(d.getPasajero().getCedula());
-
-        JButton botonesH[]={cmdEliminar};
-
-        Helper.habilitarBotones(botonesH);
-    }//GEN-LAST:event_tblPasajerosMouseClicked
 
     /**
      * @param args the command line arguments

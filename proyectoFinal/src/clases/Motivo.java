@@ -12,12 +12,11 @@ import java.io.ObjectOutputStream;
  *
  * @author karrieta9
  */
-public class Motivo extends Destino{
+public class Motivo implements java.io.Serializable{
  private String motivo;
 
-    public Motivo(String motivo, String destino, Personas pasajero) {
-        super(destino, pasajero);
-        this.motivo = motivo;
+    public Motivo(String motivo) {
+       this.motivo = motivo;
     }
 
     public String getMotivo() {
@@ -27,11 +26,10 @@ public class Motivo extends Destino{
     public void setMotivo(String motivo) {
         this.motivo = motivo;
     }
- 
-public void guardar(ObjectOutputStream salida) throws IOException{
+
+   public void guardar(ObjectOutputStream salida) throws IOException{
       salida.writeObject(this);
         
-    } 
- 
+    }
  
 }
