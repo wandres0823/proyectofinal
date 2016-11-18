@@ -9,6 +9,7 @@ import clases.Destino;
 import clases.Helper;
 import clases.Motivo;
 import clases.Personas;
+import static interfaz.AgregarDestino.cmdDestino;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
@@ -50,7 +51,7 @@ public class definirMotivo extends javax.swing.JDialog {
             System.out.println(ex.getMessage());
         }
         Helper.volcado(salida, motivos);
-        Helper.llenarTablaDestino(tblPasajeros, rutaM);
+        Helper.llenarTablaMotivo(tblPasajeros, rutaM);
     }
 
     /**
@@ -135,6 +136,11 @@ public class definirMotivo extends javax.swing.JDialog {
         cmdBuscar.setText("Buscar");
         cmdBuscar.setContentAreaFilled(false);
         cmdBuscar.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/1479249454_system-search.png"))); // NOI18N
+        cmdBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdBuscarActionPerformed(evt);
+            }
+        });
         jPanel3.add(cmdBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 110, -1));
 
         cmdGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/1479249679_save.png"))); // NOI18N
@@ -291,17 +297,86 @@ public class definirMotivo extends javax.swing.JDialog {
     }//GEN-LAST:event_txtCedulaKeyTyped
 
     private void cmdGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdGuardarActionPerformed
-        try {
-            String motivo;
-            motivo=Helper.motivoSeleccionado(radioButtonNegocios, radioButtonOtro, radioButtonEducacion, radioButtonFamiliar, radioButtonTurismo);
+      
+        String auxPasajero, cedula,destino;
+        int indice;
+        Personas pasajeros;
+        
+       
             
-            Motivo m = new Motivo(motivo);
-            m.guardar(salida);
+         destino=Helper.motivoSeleccionado(radioButtonNegocios, radioButtonOtro, radioButtonEducacion, radioButtonFamiliar, radioButtonTurismo);
+        auxPasajero = cmbPasajeros.getSelectedItem().toString();
+        indice = auxPasajero.indexOf("-") - 1;
+        cedula = auxPasajero.substring(0, indice);
+        ArrayList<Destino> destinosModificado;
+        pasajeros = Helper.traerPersonaCedula(cedula, rutaP);
+        try {
+            if (aux == 0) {
+
+                Destino d = new Destino(destino, pasajeros);
+                d.guardar(salida);
+
+            } else {
+                destinosModificado = Helper.modificarDestino(rutaD, cedula,destino, pasajeros);
+                salida = new ObjectOutputStream(new FileOutputStream(rutaD));
+                Helper.volcado(salida, destinosModificado);
+                aux = 0;
+                Helper.mensaje(this, "Destino Actualizado Correctamente!", 1);
+            }
         } catch (IOException ex) {
-            Logger.getLogger(definirMotivo.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Agregar.class.getName()).log(Level.SEVERE, null, ex);
         }
-        Helper.llenarTablaMotivo(tblPasajeros, rutaM);
+
+        Helper.llenarTablaDestino(tblPasajeros, rutaM);
+
+       
+
+        cmbPasajeros.setSelectedIndex(0);
+        cmdDestino.clearSelection();
+        
+        JButton botonesH[] = {cmdCancelar,cmdBuscar };
+        JButton botonesD[] = {cmdEliminar, cmdGuardar};
+
+        Helper.habilitarBotones(botonesH);
+        Helper.deshabilitarBotones(botonesD);
+        
+       
     }//GEN-LAST:event_cmdGuardarActionPerformed
+
+    private void cmdBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdBuscarActionPerformed
+   String cedula, auxPasajeros;
+        Personas pasajeros;
+        cedula = txtCedula.getText();
+        Destino d;
+        
+        if (txtCedula.getText().isEmpty()) {
+            getToolkit().beep();
+            Helper.mensaje(this, "Digite Numero de su Cedula", 3);
+            txtCedula.requestFocusInWindow();
+        }
+        
+        else{
+        
+        if (Helper.buscarMotivo(cedula, rutaD)) {
+            d = Helper.traerDestino(cedula, rutaD);
+            txtCedula.setText(d.getPasajero().getCedula());
+            pasajeros = d.getPasajero();
+            auxPasajeros = pasajeros.getCedula() + " - " + pasajeros.getNombre() + " " + pasajeros.getApellido();
+            cmbPasajeros.setSelectedItem(auxPasajeros);
+          
+            
+            aux = 1;
+        } else {
+            txtCedula.requestFocusInWindow();
+            aux = 0;
+        }
+       JButton botonesH[]={cmdGuardar,cmdCancelar};
+        JButton botonesD[]={cmdBuscar, cmdEliminar};
+        
+        Helper.habilitarBotones(botonesH);
+        Helper.deshabilitarBotones(botonesD);
+        }
+    }//GEN-LAST:event_cmdBuscarActionPerformed
 
     /**
      * @param args the command line arguments

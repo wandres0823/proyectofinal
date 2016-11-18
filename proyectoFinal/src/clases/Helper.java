@@ -510,7 +510,7 @@ public class Helper {
     public static ArrayList<Motivo> modificarMotivo(String ruta, String cedula, String motivo) {
         ArrayList<Motivo> motivos = traerDatos(ruta);
         for (int i = 0; i < motivos.size(); i++) {
-            if (motivos.get(i).getCedula().equals(cedula)) {
+            if (motivos.get(i).getClass().equals(cedula)) {
                 motivos.get(i).setMotivo(motivo);
                 
 
